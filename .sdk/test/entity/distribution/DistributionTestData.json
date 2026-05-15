@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "distribution": {
+      "DISTRIBUTION00": {
+        "result": {}
+      },
+      "DISTRIBUTION01": {
+        "result": {}
+      },
+      "DISTRIBUTION02": {
+        "result": {}
+      }
+    }
+  },
+  "new": {
+    "distribution": {
+      "distribution_ref01": {
+        "result": {}
+      }
+    }
+  }
+}

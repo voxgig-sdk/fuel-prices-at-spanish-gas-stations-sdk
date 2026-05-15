@@ -1,0 +1,23 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: dataset: {
+    path: "/catalog/dataset": {
+      op: load: method: *GET
+    }
+    path: "/catalog/dataset/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: distribution: {
+    path: "/catalog/distribution": {
+      op: load: method: *GET
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+# BasicDistributionFlow
+
+main: kit: flow: BasicDistributionFlow:
+{
+  entity: "distribution",
+  kind: "basic",
+  name: "BasicDistributionFlow",
+  step: [
+    {
+      input: {
+        ref: "distribution_ref01",
+        srcdatavar: "distribution_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-distribution_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDistributionFlow"
+}

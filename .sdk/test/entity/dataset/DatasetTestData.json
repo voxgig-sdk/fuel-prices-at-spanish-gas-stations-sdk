@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "dataset": {
+      "DATASET00": {
+        "description": "s5a",
+        "distribution": [],
+        "id": "DATASET00",
+        "keyword": [],
+        "modified": "s5e",
+        "publisher": {},
+        "result": {},
+        "theme": [],
+        "title": "s62"
+      },
+      "DATASET01": {
+        "description": "sb4",
+        "distribution": [],
+        "id": "DATASET01",
+        "keyword": [],
+        "modified": "sb8",
+        "publisher": {},
+        "result": {},
+        "theme": [],
+        "title": "sbc"
+      },
+      "DATASET02": {
+        "description": "s10e",
+        "distribution": [],
+        "id": "DATASET02",
+        "keyword": [],
+        "modified": "s112",
+        "publisher": {},
+        "result": {},
+        "theme": [],
+        "title": "s116"
+      }
+    }
+  },
+  "new": {
+    "dataset": {
+      "dataset_ref01": {
+        "description": "s168",
+        "distribution": [],
+        "keyword": [],
+        "modified": "s16c",
+        "publisher": {},
+        "result": {},
+        "theme": [],
+        "title": "s170"
+      }
+    }
+  }
+}

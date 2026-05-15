@@ -1,0 +1,163 @@
+# Entity: dataset
+
+main: kit: entity: dataset: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "distribution"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "keyword"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "modified"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "publisher"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "result"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "theme"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "dataset"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "keyword"
+                orig: "keyword"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "title"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "theme"
+                orig: "theme"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/catalog/dataset"
+          parts: [
+            "catalog"
+            "dataset"
+          ]
+          select: {
+            exist: [
+              "keyword"
+              "page"
+              "page_size"
+              "sort"
+              "theme"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/catalog/dataset/{id}"
+          parts: [
+            "catalog"
+            "dataset"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

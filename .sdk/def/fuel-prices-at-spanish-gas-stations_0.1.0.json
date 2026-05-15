@@ -1,0 +1,221 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fuel Prices at Spanish Gas Stations API",
+    "description": "Provides information about fuel prices at gas stations in Spain via the datos.gob.es CKAN-based data catalog API.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "datos.gob.es",
+      "url": "https://datos.gob.es"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://datos.gob.es/apidata",
+      "description": "datos.gob.es API server"
+    }
+  ],
+  "paths": {
+    "/catalog/dataset": {
+      "get": {
+        "summary": "Query datasets",
+        "description": "Query the data catalog for fuel price and gas station datasets. Supports pagination and sorting.",
+        "operationId": "listDatasets",
+        "parameters": [
+          {
+            "name": "_sort",
+            "in": "query",
+            "description": "Sort field (e.g., title, modified)",
+            "schema": { "type": "string", "default": "title" }
+          },
+          {
+            "name": "_pageSize",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": { "type": "integer", "default": 10 }
+          },
+          {
+            "name": "_page",
+            "in": "query",
+            "description": "Page number (0-indexed)",
+            "schema": { "type": "integer", "default": 0 }
+          },
+          {
+            "name": "theme",
+            "in": "query",
+            "description": "Filter by theme (e.g., energia for energy/fuel datasets)",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "Filter by keyword",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dataset listing",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DatasetListResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/catalog/dataset/{id}": {
+      "get": {
+        "summary": "Get dataset by ID",
+        "description": "Retrieve a specific dataset by its identifier.",
+        "operationId": "getDataset",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The dataset identifier",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dataset details",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Dataset" }
+              }
+            }
+          },
+          "404": {
+            "description": "Dataset not found"
+          }
+        }
+      }
+    },
+    "/catalog/distribution": {
+      "get": {
+        "summary": "List distributions",
+        "description": "Query available data distributions (downloadable resources) in the catalog.",
+        "operationId": "listDistributions",
+        "parameters": [
+          {
+            "name": "_sort",
+            "in": "query",
+            "description": "Sort field",
+            "schema": { "type": "string", "default": "title" }
+          },
+          {
+            "name": "_pageSize",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": { "type": "integer", "default": 10 }
+          },
+          {
+            "name": "_page",
+            "in": "query",
+            "description": "Page number (0-indexed)",
+            "schema": { "type": "integer", "default": 0 }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Filter by distribution format (e.g., CSV, JSON, XML)",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Distribution listing",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DistributionListResponse" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DatasetListResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/Dataset" }
+              },
+              "totalResults": { "type": "integer" },
+              "page": { "type": "integer" },
+              "pageSize": { "type": "integer" }
+            }
+          }
+        }
+      },
+      "Dataset": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "description": "Dataset identifier" },
+          "title": { "type": "string", "description": "Dataset title" },
+          "description": { "type": "string", "description": "Dataset description" },
+          "theme": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Dataset themes/categories"
+          },
+          "keyword": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Dataset keywords"
+          },
+          "modified": { "type": "string", "format": "date-time", "description": "Last modification date" },
+          "publisher": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "mbox": { "type": "string" }
+            }
+          },
+          "distribution": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Distribution" }
+          }
+        }
+      },
+      "Distribution": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "description": "Distribution identifier" },
+          "title": { "type": "string", "description": "Distribution title" },
+          "format": { "type": "string", "description": "File format (CSV, JSON, XML, etc.)" },
+          "accessURL": { "type": "string", "format": "uri", "description": "URL to access the distribution" },
+          "downloadURL": { "type": "string", "format": "uri", "description": "Direct download URL" },
+          "byteSize": { "type": "integer", "description": "Size in bytes" },
+          "mediaType": { "type": "string", "description": "MIME type" }
+        }
+      },
+      "DistributionListResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/Distribution" }
+              },
+              "totalResults": { "type": "integer" },
+              "page": { "type": "integer" },
+              "pageSize": { "type": "integer" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

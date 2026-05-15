@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "datos.gob.es"
+        url: "https://datos.gob.es"
+      }
+      description: "Provides information about fuel prices at gas stations in Spain via the datos.gob.es CKAN-based data catalog API."
+      servers: [
+        {
+          description: "datos.gob.es API server"
+          url: "https://datos.gob.es/apidata"
+        }
+      ]
+      title: "Fuel Prices at Spanish Gas Stations API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
