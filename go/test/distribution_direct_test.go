@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk"
-	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/core"
+	sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go"
+	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go/core"
 )
 
 func TestDistributionDirect(t *testing.T) {

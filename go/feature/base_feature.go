@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/core"
+	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go/core"
 )
 
 type BaseFeature struct {

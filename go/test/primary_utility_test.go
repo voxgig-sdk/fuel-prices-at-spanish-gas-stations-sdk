@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk"
+	sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {

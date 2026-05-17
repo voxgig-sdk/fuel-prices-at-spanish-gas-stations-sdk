@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk"
+	sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go"
 )
 
 func TestExists(t *testing.T) {

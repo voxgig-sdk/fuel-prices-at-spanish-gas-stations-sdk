@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/core"
+	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go/core"
 )
 
 type LogFeature struct {

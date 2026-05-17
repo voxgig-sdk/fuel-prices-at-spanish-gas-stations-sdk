@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/core"
+import "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go/core"
 
 func resultHeadersUtil(ctx *core.Context) *core.Result {
 	response := ctx.Response

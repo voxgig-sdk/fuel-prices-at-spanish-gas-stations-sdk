@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/core"
+	"github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go/utility/struct"
 )
 
 type DistributionEntity struct {

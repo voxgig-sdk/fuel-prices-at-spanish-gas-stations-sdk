@@ -2,13 +2,16 @@
   "existing": {
     "distribution": {
       "DISTRIBUTION00": {
-        "result": {}
+        "result": {},
+        "id": "DISTRIBUTION00"
       },
       "DISTRIBUTION01": {
-        "result": {}
+        "result": {},
+        "id": "DISTRIBUTION01"
       },
       "DISTRIBUTION02": {
-        "result": {}
+        "result": {},
+        "id": "DISTRIBUTION02"
       }
     }
   },
