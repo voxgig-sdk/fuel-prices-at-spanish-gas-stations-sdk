@@ -95,7 +95,6 @@ function dataset_basic_setup(extra)
     ["FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID"] = idmap,
     ["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] = "FALSE",
     ["FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN"] = "FALSE",
-    ["FUELPRICESATSPANISHGASSTATIONS_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -107,7 +106,6 @@ function dataset_basic_setup(extra)
   if env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["FUELPRICESATSPANISHGASSTATIONS_APIKEY"],
       },
       extra or {},
     })

@@ -91,7 +91,6 @@ def _distribution_basic_setup(extra):
         "FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID": idmap,
         "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE": "FALSE",
         "FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN": "FALSE",
-        "FUELPRICESATSPANISHGASSTATIONS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _distribution_basic_setup(extra):
     if env.get("FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FUELPRICESATSPANISHGASSTATIONS_APIKEY"),
             },
             extra or {},
         ])

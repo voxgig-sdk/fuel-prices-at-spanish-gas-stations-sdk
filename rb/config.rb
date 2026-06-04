@@ -15,9 +15,6 @@ module FuelPricesAtSpanishGasStationsConfig
       },
       "options" => {
         "base" => "https://datos.gob.es/apidata",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

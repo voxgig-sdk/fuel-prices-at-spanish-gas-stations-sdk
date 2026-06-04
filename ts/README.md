@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { FuelPricesAtSpanishGasStationsSDK } from 'fuel-prices-at-spanish-gas-stations'
 
-const client = new FuelPricesAtSpanishGasStationsSDK({
-  apikey: process.env.FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY,
-})
+const client = new FuelPricesAtSpanishGasStationsSDK({})
 ```
 
 ### 3. Load a dataset
@@ -82,7 +80,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new FuelPricesAtSpanishGasStationsSDK({ apikey: '...' })
+const client = new FuelPricesAtSpanishGasStationsSDK()
 const testClient = client.tester()
 ```
 
@@ -118,7 +116,6 @@ const logger = {
 }
 
 const client = new FuelPricesAtSpanishGasStationsSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -129,7 +126,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FUEL-PRICES-AT-SPANISH-GAS-STATIONS_TEST_LIVE=TRUE
-FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,7 +143,6 @@ cd ts && npm test
 
 ```ts
 new FuelPricesAtSpanishGasStationsSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -158,7 +153,6 @@ new FuelPricesAtSpanishGasStationsSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

@@ -17,7 +17,18 @@
           }
         ],
         "title": "Fuel Prices at Spanish Gas Stations API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Query Spain's open data catalogue for fuel-price datasets and distributions from datos.gob.es",
+        "homepage": "https://datos.gob.es/en/apidata",
+        "docs_url": "https://datos.gob.es/en/apidata",
+        "license_short": "Spanish public sector reuse terms (Ley 37/2007); see datos.gob.es legal notice",
+        "license_md": "- Data and metadata are published by the Spanish government under public sector information reuse rules (Ley 37/2007 / Real Decreto 1495/2011).\n- Attribution to the source dataset publisher is generally required; check each dataset's own licence field.\n- The catalogue itself is operated by datos.gob.es; consult the [legal notice](https://datos.gob.es/) for the authoritative terms.",
+        "about_md": "This SDK wraps the [datos.gob.es](https://datos.gob.es/en/apidata) APIdata service, the query interface to Spain's national open-data catalogue run by the Secretaría General de Administración Digital. It is used here to locate fuel-price datasets published by Spanish public bodies (notably the Ministerio para la Transición Ecológica / Ministerio de Industria) and the distributions (CSV, XML, JSON, etc.) that carry the actual gas-station price records.\n\nWhat you get from the API:\n\n- Catalogue queries over `dataset` resources, filterable by publisher, theme, keyword, and geographic coverage.\n- `distribution` resources describing each downloadable file for a dataset, including format and access URL.\n- URIs aligned with the Spanish NTI (Norma Técnica de Interoperabilidad) and DCAT-AP vocabulary.\n- A SPARQL endpoint for direct semantic queries against the same catalogue.\n\nThe API is read-only and does not require authentication. Fuel-price records themselves live in the distribution files linked from each dataset rather than as inline fields in the catalogue response.",
+        "entity_desc": {
+          "dataset": "A catalogue entry describing a published dataset (publisher, theme, keywords, coverage); queried under `/catalog/dataset`.",
+          "distribution": "A concrete downloadable representation of a dataset (format and access URL) attached to a `dataset` entry."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -25,7 +36,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "dataset": {
