@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID': {},
     'FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE': 'FALSE',
+    'FUELPRICESATSPANISHGASSTATIONS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE
 
   if (live) {
     const client = new FuelPricesAtSpanishGasStationsSDK({
+      apikey: env.FUELPRICESATSPANISHGASSTATIONS_APIKEY,
     })
 
     let idmap: any = env['FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID']

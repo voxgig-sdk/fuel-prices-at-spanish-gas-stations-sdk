@@ -62,12 +62,14 @@ function dataset_direct_setup(mockres)
   local env = runner.env_override({
     ["FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID"] = {},
     ["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] = "FALSE",
+    ["FUELPRICESATSPANISHGASSTATIONS_APIKEY"] = "NONE",
   })
 
   local live = env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["FUELPRICESATSPANISHGASSTATIONS_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

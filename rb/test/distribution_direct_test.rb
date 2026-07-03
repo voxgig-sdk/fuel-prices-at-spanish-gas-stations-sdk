@@ -61,12 +61,14 @@ def distribution_direct_setup(mockres)
   env = Runner.env_override({
     "FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID" => {},
     "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE" => "FALSE",
+    "FUELPRICESATSPANISHGASSTATIONS_APIKEY" => "NONE",
   })
 
   live = env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["FUELPRICESATSPANISHGASSTATIONS_APIKEY"],
     }
     client = FuelPricesAtSpanishGasStationsSDK.new(merged_opts)
     return {

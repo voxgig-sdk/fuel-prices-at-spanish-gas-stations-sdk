@@ -99,12 +99,14 @@ func datasetDirectSetup(mockres any) *datasetDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID": map[string]any{},
 		"FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE":    "FALSE",
+		"FUELPRICESATSPANISHGASSTATIONS_APIKEY":       "NONE",
 	})
 
 	live := env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["FUELPRICESATSPANISHGASSTATIONS_APIKEY"],
 		}
 		client := sdk.NewFuelPricesAtSpanishGasStationsSDK(mergedOpts)
 

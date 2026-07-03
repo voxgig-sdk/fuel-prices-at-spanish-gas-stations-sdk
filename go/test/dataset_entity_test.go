@@ -123,6 +123,7 @@ func datasetBasicSetup(extra map[string]any) *entityTestSetup {
 		"FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID": idmap,
 		"FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE":      "FALSE",
 		"FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN":   "FALSE",
+		"FUELPRICESATSPANISHGASSTATIONS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID"])
@@ -133,6 +134,7 @@ func datasetBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["FUELPRICESATSPANISHGASSTATIONS_APIKEY"],
 			},
 			extra,
 		})

@@ -1,21 +1,8 @@
 # FuelPricesAtSpanishGasStations SDK
 
-Query Spain's open data catalogue for fuel-price datasets and distributions from datos.gob.es
+Fuel Prices at Spanish Gas Stations API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Fuel Prices at Spanish Gas Stations API
-
-This SDK wraps the [datos.gob.es](https://datos.gob.es/en/apidata) APIdata service, the query interface to Spain's national open-data catalogue run by the Secretaría General de Administración Digital. It is used here to locate fuel-price datasets published by Spanish public bodies (notably the Ministerio para la Transición Ecológica / Ministerio de Industria) and the distributions (CSV, XML, JSON, etc.) that carry the actual gas-station price records.
-
-What you get from the API:
-
-- Catalogue queries over `dataset` resources, filterable by publisher, theme, keyword, and geographic coverage.
-- `distribution` resources describing each downloadable file for a dataset, including format and access URL.
-- URIs aligned with the Spanish NTI (Norma Técnica de Interoperabilidad) and DCAT-AP vocabulary.
-- A SPARQL endpoint for direct semantic queries against the same catalogue.
-
-The API is read-only and does not require authentication. Fuel-price records themselves live in the distribution files linked from each dataset rather than as inline fields in the catalogue response.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install fuel-prices-at-spanish-gas-stations-sdk
 luarocks install fuel-prices-at-spanish-gas-stations-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FuelPricesAtSpanishGasStationsSDK } from 'fuel-prices-at-spanish-gas-stations'
 
-const client = new FuelPricesAtSpanishGasStationsSDK({})
+const client = new FuelPricesAtSpanishGasStationsSDK({
+  apikey: process.env.FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY,
+})
 
+// Load dataset data
+const dataset = await client.Dataset().load({})
+console.log(dataset.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Dataset** | A catalogue entry describing a published dataset (publisher, theme, keywords, coverage); queried under `/catalog/dataset`. | `/catalog/dataset` |
-| **Distribution** | A concrete downloadable representation of a dataset (format and access URL) attached to a `dataset` entry. | `/catalog/distribution` |
+| **Dataset** |  | `/catalog/dataset` |
+| **Distribution** |  | `/catalog/distribution` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from fuelpricesatspanishgasstations_sdk import FuelPricesAtSpanishGasStationsSDK
 
-client = FuelPricesAtSpanishGasStationsSDK({})
+client = FuelPricesAtSpanishGasStationsSDK({
+    "apikey": os.environ.get("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
+})
 
 
 # Load a specific dataset
-dataset, err = client.Dataset(None).load(
-    {"id": "example_id"}, None
-)
+dataset, err = client.Dataset().load({"id": "example_id"})
+print(dataset)
 ```
 
 ### PHP
@@ -127,13 +120,14 @@ dataset, err = client.Dataset(None).load(
 <?php
 require_once 'fuelpricesatspanishgasstations_sdk.php';
 
-$client = new FuelPricesAtSpanishGasStationsSDK([]);
+$client = new FuelPricesAtSpanishGasStationsSDK([
+    "apikey" => getenv("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
+]);
 
 
 // Load a specific dataset
-[$dataset, $err] = $client->Dataset(null)->load(
-    ["id" => "example_id"], null
-);
+[$dataset, $err] = $client->Dataset()->load(["id" => "example_id"]);
+print_r($dataset);
 ```
 
 ### Golang
@@ -141,8 +135,13 @@ $client = new FuelPricesAtSpanishGasStationsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go"
 
-client := sdk.NewFuelPricesAtSpanishGasStationsSDK(map[string]any{})
+client := sdk.NewFuelPricesAtSpanishGasStationsSDK(map[string]any{
+    "apikey": os.Getenv("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
+})
 
+// Load dataset data
+dataset, err := client.Dataset(nil).Load(map[string]any{}, nil)
+fmt.Println(dataset)
 ```
 
 ### Ruby
@@ -150,13 +149,14 @@ client := sdk.NewFuelPricesAtSpanishGasStationsSDK(map[string]any{})
 ```ruby
 require_relative "FuelPricesAtSpanishGasStations_sdk"
 
-client = FuelPricesAtSpanishGasStationsSDK.new({})
+client = FuelPricesAtSpanishGasStationsSDK.new({
+  "apikey" => ENV["FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"],
+})
 
 
 # Load a specific dataset
-dataset, err = client.Dataset(nil).load(
-  { "id" => "example_id" }, nil
-)
+dataset, err = client.Dataset().load({ "id" => "example_id" })
+puts dataset
 ```
 
 ### Lua
@@ -164,13 +164,14 @@ dataset, err = client.Dataset(nil).load(
 ```lua
 local sdk = require("fuel-prices-at-spanish-gas-stations_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
+})
 
 
 -- Load a specific dataset
-local dataset, err = client:Dataset(nil):load(
-  { id = "example_id" }, nil
-)
+local dataset, err = client:Dataset():load({ id = "example_id" })
+print(dataset)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +190,21 @@ const result = await client.Dataset().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FuelPricesAtSpanishGasStationsSDK.test(None, None)
-result, err = client.Dataset(None).load(
-    {"id": "test01"}, None
-)
+client = FuelPricesAtSpanishGasStationsSDK.test()
+result, err = client.Dataset().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FuelPricesAtSpanishGasStationsSDK::test(null, null);
-[$result, $err] = $client->Dataset(null)->load(
-    ["id" => "test01"], null
-);
+$client = FuelPricesAtSpanishGasStationsSDK::test();
+[$result, $err] = $client->Dataset()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Dataset(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +213,15 @@ result, err := client.Dataset(nil).Load(
 ### Ruby
 
 ```ruby
-client = FuelPricesAtSpanishGasStationsSDK.test(nil, nil)
-result, err = client.Dataset(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FuelPricesAtSpanishGasStationsSDK.test
+result, err = client.Dataset().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Dataset(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Dataset():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,14 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Fuel Prices at Spanish Gas Stations API
-
-- Upstream: [https://datos.gob.es/en/apidata](https://datos.gob.es/en/apidata)
-
-- Data and metadata are published by the Spanish government under public sector information reuse rules (Ley 37/2007 / Real Decreto 1495/2011).
-- Attribution to the source dataset publisher is generally required; check each dataset's own licence field.
-- The catalogue itself is operated by datos.gob.es; consult the [legal notice](https://datos.gob.es/) for the authoritative terms.
 
 ---
 
