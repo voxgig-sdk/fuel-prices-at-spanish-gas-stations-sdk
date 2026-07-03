@@ -10,7 +10,7 @@ The Python SDK for the FuelPricesAtSpanishGasStations API — an entity-oriented
 
 ## Install
 ```bash
-pip install fuel-prices-at-spanish-gas-stations-sdk
+pip install voxgig-sdk-fuel-prices-at-spanish-gas-stations
 ```
 
 Or install from source:

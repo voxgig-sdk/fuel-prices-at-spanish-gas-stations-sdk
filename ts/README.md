@@ -10,7 +10,7 @@ The TypeScript SDK for the FuelPricesAtSpanishGasStations API — a type-safe, e
 
 ## Install
 ```bash
-npm install fuel-prices-at-spanish-gas-stations
+npm install @voxgig-sdk/fuel-prices-at-spanish-gas-stations
 ```
 ## Tutorial: your first API call
 

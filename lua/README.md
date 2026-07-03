@@ -10,7 +10,7 @@ The Lua SDK for the FuelPricesAtSpanishGasStations API — an entity-oriented cl
 
 ## Install
 ```bash
-luarocks install fuel-prices-at-spanish-gas-stations-sdk
+luarocks install voxgig-sdk-fuel-prices-at-spanish-gas-stations
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,13 +10,13 @@ The Ruby SDK for the FuelPricesAtSpanishGasStations API — an entity-oriented c
 
 ## Install
 ```bash
-gem install fuel-prices-at-spanish-gas-stations-sdk
+gem install voxgig-sdk-fuel-prices-at-spanish-gas-stations
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "fuel-prices-at-spanish-gas-stations-sdk"
+gem "voxgig-sdk-fuel-prices-at-spanish-gas-stations"
 ```
 
 Then run:

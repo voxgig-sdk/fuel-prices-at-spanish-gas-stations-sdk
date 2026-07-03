@@ -10,7 +10,7 @@ The PHP SDK for the FuelPricesAtSpanishGasStations API — an entity-oriented cl
 
 ## Install
 ```bash
-composer require voxgig/fuel-prices-at-spanish-gas-stations-sdk
+composer require voxgig-sdk/fuel-prices-at-spanish-gas-stations
 ```
 
 

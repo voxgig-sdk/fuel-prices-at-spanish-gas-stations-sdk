@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/fuel-prices-at-spanish-gas-stations",
-  "description": "FuelPricesAtSpanishGasStations SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Fuel Prices at Spanish Gas Stations public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "fuel-prices-at-spanish-gas-stations"],
+  "homepage": "https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

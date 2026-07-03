@@ -8,12 +8,14 @@ source = {
   dir = "fuel-prices-at-spanish-gas-stations-sdk/lua"
 }
 description = {
-  summary = "FuelPricesAtSpanishGasStations SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Fuel Prices at Spanish Gas Stations public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk",
+  issues_url = "https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "fuel-prices-at-spanish-gas-stations" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {
