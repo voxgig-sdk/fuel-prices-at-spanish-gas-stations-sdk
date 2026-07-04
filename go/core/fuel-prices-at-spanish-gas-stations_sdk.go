@@ -245,11 +245,17 @@ func (sdk *FuelPricesAtSpanishGasStationsSDK) Direct(fetchargs map[string]any) (
 }
 
 
+// Dataset returns a Dataset entity bound to this client.
+// Idiomatic usage: client.Dataset(nil).List(nil, nil) or
+// client.Dataset(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FuelPricesAtSpanishGasStationsSDK) Dataset(data map[string]any) FuelPricesAtSpanishGasStationsEntity {
 	return NewDatasetEntityFunc(sdk, data)
 }
 
 
+// Distribution returns a Distribution entity bound to this client.
+// Idiomatic usage: client.Distribution(nil).List(nil, nil) or
+// client.Distribution(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FuelPricesAtSpanishGasStationsSDK) Distribution(data map[string]any) FuelPricesAtSpanishGasStationsEntity {
 	return NewDistributionEntityFunc(sdk, data)
 }

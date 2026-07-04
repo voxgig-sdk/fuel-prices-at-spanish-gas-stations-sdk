@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://datos.gob.es/apidata",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -179,6 +176,7 @@ local function make_config()
                       ["orig"] = "id",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                 },

@@ -10,26 +10,24 @@ This is an unofficial SDK for the Fuel Prices at Spanish Gas Stations public API
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fuel-prices-at-spanish-gas-stations` | `npm install @voxgig-sdk/fuel-prices-at-spanish-gas-stations` |
-| Python | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | `pip install voxgig-sdk-fuel-prices-at-spanish-gas-stations` |
-| PHP | `voxgig-sdk/fuel-prices-at-spanish-gas-stations` | `composer require voxgig-sdk/fuel-prices-at-spanish-gas-stations` |
-| Golang | `github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go` | `go get github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go` |
-| Ruby | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | `gem install voxgig-sdk-fuel-prices-at-spanish-gas-stations` |
-| Lua | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | `luarocks install voxgig-sdk-fuel-prices-at-spanish-gas-stations` |
+| TypeScript | `@voxgig-sdk/fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
+| Python | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
+| PHP | `voxgig-sdk/fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go` | `go get github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go@latest` |
+| Ruby | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
+| Lua | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { FuelPricesAtSpanishGasStationsSDK } from 'fuel-prices-at-spanish-gas-stations'
+import { FuelPricesAtSpanishGasStationsSDK } from '@voxgig-sdk/fuel-prices-at-spanish-gas-stations'
 
-const client = new FuelPricesAtSpanishGasStationsSDK({
-  apikey: process.env.FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY,
-})
+const client = new FuelPricesAtSpanishGasStationsSDK()
 
 // Load dataset data
-const dataset = await client.Dataset().load({})
+const dataset = await client.dataset.load({})
 console.log(dataset.data)
 ```
 
@@ -71,8 +69,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Dataset** |  | `/catalog/dataset` |
-| **Distribution** |  | `/catalog/distribution` |
+| **Dataset** | The Dataset entity (load). | `/catalog/dataset` |
+| **Distribution** | The Distribution entity (load). | `/catalog/distribution` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -82,16 +80,13 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from fuelpricesatspanishgasstations_sdk import FuelPricesAtSpanishGasStationsSDK
 
-client = FuelPricesAtSpanishGasStationsSDK({
-    "apikey": os.environ.get("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
-})
+client = FuelPricesAtSpanishGasStationsSDK()
 
 
 # Load a specific dataset
-dataset, err = client.Dataset().load({"id": "example_id"})
+dataset = client.dataset.load({"id": "example_id"})
 print(dataset)
 ```
 
@@ -101,13 +96,11 @@ print(dataset)
 <?php
 require_once 'fuelpricesatspanishgasstations_sdk.php';
 
-$client = new FuelPricesAtSpanishGasStationsSDK([
-    "apikey" => getenv("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
-]);
+$client = new FuelPricesAtSpanishGasStationsSDK();
 
 
 // Load a specific dataset
-[$dataset, $err] = $client->Dataset()->load(["id" => "example_id"]);
+$dataset = $client->dataset()->load(["id" => "example_id"]);
 print_r($dataset);
 ```
 
@@ -116,9 +109,7 @@ print_r($dataset);
 ```go
 import sdk "github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go"
 
-client := sdk.NewFuelPricesAtSpanishGasStationsSDK(map[string]any{
-    "apikey": os.Getenv("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
-})
+client := sdk.New()
 
 // Load dataset data
 dataset, err := client.Dataset(nil).Load(map[string]any{}, nil)
@@ -130,13 +121,11 @@ fmt.Println(dataset)
 ```ruby
 require_relative "FuelPricesAtSpanishGasStations_sdk"
 
-client = FuelPricesAtSpanishGasStationsSDK.new({
-  "apikey" => ENV["FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"],
-})
+client = FuelPricesAtSpanishGasStationsSDK.new
 
 
 # Load a specific dataset
-dataset, err = client.Dataset().load({ "id" => "example_id" })
+dataset = client.dataset.load({ "id" => "example_id" })
 puts dataset
 ```
 
@@ -145,13 +134,11 @@ puts dataset
 ```lua
 local sdk = require("fuel-prices-at-spanish-gas-stations_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("FUEL-PRICES-AT-SPANISH-GAS-STATIONS_APIKEY"),
-})
+local client = sdk.new()
 
 
 -- Load a specific dataset
-local dataset, err = client:Dataset():load({ id = "example_id" })
+local dataset, err = client:dataset():load({ id = "example_id" })
 print(dataset)
 ```
 
@@ -164,7 +151,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = FuelPricesAtSpanishGasStationsSDK.test()
-const result = await client.Dataset().load({ id: 'test01' })
+const result = await client.dataset.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -172,14 +159,14 @@ const result = await client.Dataset().load({ id: 'test01' })
 
 ```python
 client = FuelPricesAtSpanishGasStationsSDK.test()
-result, err = client.Dataset().load({"id": "test01"})
+result = client.dataset.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = FuelPricesAtSpanishGasStationsSDK::test();
-[$result, $err] = $client->Dataset()->load(["id" => "test01"]);
+$result = $client->dataset()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -195,14 +182,14 @@ result, err := client.Dataset(nil).Load(
 
 ```ruby
 client = FuelPricesAtSpanishGasStationsSDK.test
-result, err = client.Dataset().load({ "id" => "test01" })
+result = client.dataset.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Dataset():load({ id = "test01" })
+local result, err = client:dataset():load({ id = "test01" })
 ```
 
 ## How it works
@@ -255,7 +242,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -264,7 +251,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -282,7 +269,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

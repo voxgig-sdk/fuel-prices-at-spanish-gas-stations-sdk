@@ -49,8 +49,7 @@ class TestDistributionEntity:
         # LOAD
         distribution_ref01_ent = client.Distribution(None)
         distribution_ref01_match_dt0 = {}
-        distribution_ref01_data_dt0_loaded, err = distribution_ref01_ent.load(distribution_ref01_match_dt0, None)
-        assert err is None
+        distribution_ref01_data_dt0_loaded = distribution_ref01_ent.load(distribution_ref01_match_dt0, None)
         assert distribution_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _distribution_basic_setup(extra):
         "FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID": idmap,
         "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE": "FALSE",
         "FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN": "FALSE",
-        "FUELPRICESATSPANISHGASSTATIONS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _distribution_basic_setup(extra):
     if env.get("FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FUELPRICESATSPANISHGASSTATIONS_APIKEY"),
             },
             extra or {},
         ])

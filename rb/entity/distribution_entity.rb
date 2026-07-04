@@ -45,6 +45,7 @@ class DistributionEntity
     end
   end
 
+  # @return [Distribution, Hash] the current Distribution data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class DistributionEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Distribution fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Distribution.
+  #
+  # @param reqmatch [DistributionLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Distribution, Hash] the loaded Distribution; raises FuelPricesAtSpanishGasStationsError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

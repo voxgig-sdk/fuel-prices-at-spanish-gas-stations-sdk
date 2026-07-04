@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch DistributionLoadMatch
+---@param ctrl? table
+---@return Distribution
+---@return string? err
 function DistributionEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

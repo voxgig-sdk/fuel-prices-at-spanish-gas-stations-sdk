@@ -85,6 +85,27 @@ func (e *DistributionEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Distribution; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *DistributionEntity) DataTyped(data ...Distribution) Distribution {
+	if len(data) > 0 {
+		return typedFrom[Distribution](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Distribution](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Distribution (all fields
+// optional at the wire level).
+func (e *DistributionEntity) MatchTyped(match ...Distribution) Distribution {
+	if len(match) > 0 {
+		return typedFrom[Distribution](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Distribution](e.Match())
+}
+
 
 func (e *DistributionEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *DistributionEntity) Load(reqmatch map[string]any, ctrl map[string]any) 
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// DistributionLoadMatch and returns an Distribution. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *DistributionEntity) LoadTyped(reqmatch DistributionLoadMatch, ctrl map[string]any) (Distribution, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Distribution{}, err
+	}
+	return typedFrom[Distribution](res), nil
 }
 
 

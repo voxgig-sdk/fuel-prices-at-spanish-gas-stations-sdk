@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Distribution,
+  DistributionLoadMatch,
+} from '../FuelPricesAtSpanishGasStationsTypes'
 
 // TODO: needs Entity superclass
-class DistributionEntity extends FuelPricesAtSpanishGasStationsEntityBase {
+class DistributionEntity extends FuelPricesAtSpanishGasStationsEntityBase<Distribution> {
 
   constructor(client: FuelPricesAtSpanishGasStationsSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class DistributionEntity extends FuelPricesAtSpanishGasStationsEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: DistributionLoadMatch, ctrl?: Control): Promise<Distribution> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class DistributionEntity extends FuelPricesAtSpanishGasStationsEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Distribution> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

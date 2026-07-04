@@ -49,8 +49,7 @@ class DistributionEntityTest extends TestCase
         // LOAD
         $distribution_ref01_ent = $client->Distribution(null);
         $distribution_ref01_match_dt0 = [];
-        [$distribution_ref01_data_dt0_loaded, $err] = $distribution_ref01_ent->load($distribution_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $distribution_ref01_data_dt0_loaded = $distribution_ref01_ent->load($distribution_ref01_match_dt0, null);
         $this->assertNotNull($distribution_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function distribution_basic_setup($extra)
         "FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID" => $idmap,
         "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE" => "FALSE",
         "FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN" => "FALSE",
-        "FUELPRICESATSPANISHGASSTATIONS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function distribution_basic_setup($extra)
     if ($env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["FUELPRICESATSPANISHGASSTATIONS_APIKEY"],
             ],
             $extra ?? [],
         ]);

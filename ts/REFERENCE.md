@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `FuelPricesAtSpanishGasStationsSDK.test()`.
 ## DatasetEntity
 
 ```ts
-const dataset = client.Dataset()
+const dataset = client.dataset
 ```
 
 ### Fields
@@ -146,7 +145,7 @@ const dataset = client.Dataset()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Dataset().load({ id: 'dataset_id' })
+const result = await client.dataset.load({ id: 'dataset_id' })
 ```
 
 ### Common Methods
@@ -180,7 +179,7 @@ Return a copy of the entity options.
 ## DistributionEntity
 
 ```ts
-const distribution = client.Distribution()
+const distribution = client.distribution
 ```
 
 ### Fields
@@ -196,7 +195,7 @@ const distribution = client.Distribution()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Distribution().load({ id: 'distribution_id' })
+const result = await client.distribution.load({ id: 'distribution_id' })
 ```
 
 ### Common Methods

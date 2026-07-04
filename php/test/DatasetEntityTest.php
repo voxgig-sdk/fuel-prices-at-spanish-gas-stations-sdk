@@ -51,8 +51,7 @@ class DatasetEntityTest extends TestCase
         $dataset_ref01_match_dt0 = [
             "id" => $dataset_ref01_data["id"],
         ];
-        [$dataset_ref01_data_dt0_loaded, $err] = $dataset_ref01_ent->load($dataset_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $dataset_ref01_data_dt0_loaded = $dataset_ref01_ent->load($dataset_ref01_match_dt0, null);
         $dataset_ref01_data_dt0_load_result = Helpers::to_map($dataset_ref01_data_dt0_loaded);
         $this->assertNotNull($dataset_ref01_data_dt0_load_result);
         $this->assertEquals($dataset_ref01_data_dt0_load_result["id"], $dataset_ref01_data["id"]);
@@ -89,7 +88,6 @@ function dataset_basic_setup($extra)
         "FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID" => $idmap,
         "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE" => "FALSE",
         "FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN" => "FALSE",
-        "FUELPRICESATSPANISHGASSTATIONS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +99,6 @@ function dataset_basic_setup($extra)
     if ($env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["FUELPRICESATSPANISHGASSTATIONS_APIKEY"],
             ],
             $extra ?? [],
         ]);

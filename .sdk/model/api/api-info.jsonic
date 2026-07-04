@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "datos.gob.es"
         url: "https://datos.gob.es"

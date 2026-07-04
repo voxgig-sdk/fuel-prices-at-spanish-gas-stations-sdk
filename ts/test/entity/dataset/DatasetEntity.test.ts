@@ -114,7 +114,6 @@ function basicSetup(extra?: any) {
     'FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID': idmap,
     'FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE': 'FALSE',
     'FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN': 'FALSE',
-    'FUEL_PRICES_AT_SPANISH_GAS_STATIONS_APIKEY': 'NONE',
   })
 
   idmap = env['FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID']
@@ -124,7 +123,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FuelPricesAtSpanishGasStationsSDK(merge([
       {
-        apikey: env.FUEL_PRICES_AT_SPANISH_GAS_STATIONS_APIKEY,
       },
       extra
     ]))

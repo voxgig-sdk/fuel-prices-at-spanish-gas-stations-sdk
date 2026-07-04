@@ -20,9 +20,6 @@ class FuelPricesAtSpanishGasStationsConfig
             ],
             "options" => [
                 "base" => "https://datos.gob.es/apidata",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -185,6 +182,7 @@ class FuelPricesAtSpanishGasStationsConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

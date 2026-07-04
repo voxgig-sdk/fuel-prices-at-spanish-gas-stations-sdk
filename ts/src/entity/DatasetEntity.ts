@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Dataset,
+  DatasetLoadMatch,
+} from '../FuelPricesAtSpanishGasStationsTypes'
 
 // TODO: needs Entity superclass
-class DatasetEntity extends FuelPricesAtSpanishGasStationsEntityBase {
+class DatasetEntity extends FuelPricesAtSpanishGasStationsEntityBase<Dataset> {
 
   constructor(client: FuelPricesAtSpanishGasStationsSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class DatasetEntity extends FuelPricesAtSpanishGasStationsEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: DatasetLoadMatch, ctrl?: Control): Promise<Dataset> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class DatasetEntity extends FuelPricesAtSpanishGasStationsEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Dataset> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
