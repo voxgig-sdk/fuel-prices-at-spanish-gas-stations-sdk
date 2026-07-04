@@ -220,41 +220,21 @@ class FuelPricesAtSpanishGasStationsSDK:
         }
 
 
-    @property
-    def dataset(self):
-        """Idiomatic facade: client.dataset.list() / client.dataset.load({"id": ...})."""
-        from entity.dataset_entity import DatasetEntity
-        cached = getattr(self, "_dataset", None)
-        if cached is None:
-            cached = DatasetEntity(self, None)
-            self._dataset = cached
-        return cached
-
-    def Dataset(self, data=None):
-        # Deprecated: use client.dataset instead.
+    def Dataset(self, data=None) -> "DatasetEntity":
+        """Entity factory: client.Dataset().list({}) / client.Dataset().load({"id": ...})."""
         from entity.dataset_entity import DatasetEntity
         return DatasetEntity(self, data)
 
 
-    @property
-    def distribution(self):
-        """Idiomatic facade: client.distribution.list() / client.distribution.load({"id": ...})."""
-        from entity.distribution_entity import DistributionEntity
-        cached = getattr(self, "_distribution", None)
-        if cached is None:
-            cached = DistributionEntity(self, None)
-            self._distribution = cached
-        return cached
-
-    def Distribution(self, data=None):
-        # Deprecated: use client.distribution instead.
+    def Distribution(self, data=None) -> "DistributionEntity":
+        """Entity factory: client.Distribution().list({}) / client.Distribution().load({"id": ...})."""
         from entity.distribution_entity import DistributionEntity
         return DistributionEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "FuelPricesAtSpanishGasStationsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class FuelPricesAtSpanishGasStationsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.dataset_entity import DatasetEntity
+    from entity.distribution_entity import DistributionEntity

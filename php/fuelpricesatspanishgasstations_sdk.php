@@ -233,10 +233,10 @@ class FuelPricesAtSpanishGasStationsSDK
 
     private $_dataset = null;
 
-    // Idiomatic facade: $client->dataset()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Dataset() (PHP method
-    // names are case-insensitive).
-    public function dataset($data = null)
+    // Canonical facade: $client->Dataset()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->dataset()
+    // resolves here too.
+    public function Dataset($data = null)
     {
         require_once __DIR__ . '/entity/dataset_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class FuelPricesAtSpanishGasStationsSDK
 
     private $_distribution = null;
 
-    // Idiomatic facade: $client->distribution()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Distribution() (PHP method
-    // names are case-insensitive).
-    public function distribution($data = null)
+    // Canonical facade: $client->Distribution()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->distribution()
+    // resolves here too.
+    public function Distribution($data = null)
     {
         require_once __DIR__ . '/entity/distribution_entity.php';
         if ($data === null) {

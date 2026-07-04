@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## DatasetEntity
 
 ```python
-dataset = client.dataset
+dataset = client.Dataset()
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ dataset = client.dataset
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.dataset.load({"id": "dataset_id"})
+result = client.Dataset().load({"id": "dataset_id"})
 ```
 
 ### Common Methods
@@ -143,7 +143,7 @@ Return the entity name.
 ## DistributionEntity
 
 ```python
-distribution = client.distribution
+distribution = client.Distribution()
 ```
 
 ### Fields
@@ -159,7 +159,7 @@ distribution = client.distribution
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.distribution.load({"id": "distribution_id"})
+result = client.Distribution().load({"id": "distribution_id"})
 ```
 
 ### Common Methods

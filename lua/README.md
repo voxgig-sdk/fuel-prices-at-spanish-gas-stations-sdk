@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a dataset
 
 ```lua
-local result, err = client:dataset():load({ id = "example_id" })
+local dataset, err = client:Dataset():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(dataset)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:dataset():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Dataset():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -184,17 +184,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local dataset, err = client:Dataset():load({ id = "example_id" })
+    if err then error(err) end
+    -- dataset is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -233,7 +238,7 @@ API path: `/catalog/distribution`
 
 ### Dataset
 
-Create an instance: `const dataset = client.dataset`
+Create an instance: `local dataset = client:Dataset(nil)`
 
 #### Operations
 
@@ -257,14 +262,14 @@ Create an instance: `const dataset = client.dataset`
 
 #### Example: Load
 
-```ts
-const dataset = await client.dataset.load({ id: 'dataset_id' })
+```lua
+local dataset, err = client:Dataset():load({ id = "dataset_id" })
 ```
 
 
 ### Distribution
 
-Create an instance: `const distribution = client.distribution`
+Create an instance: `local distribution = client:Distribution(nil)`
 
 #### Operations
 
@@ -280,8 +285,8 @@ Create an instance: `const distribution = client.distribution`
 
 #### Example: Load
 
-```ts
-const distribution = await client.distribution.load({ id: 'distribution_id' })
+```lua
+local distribution, err = client:Distribution():load({ id = "distribution_id" })
 ```
 
 
@@ -356,7 +361,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local dataset = client:dataset()
+local dataset = client:Dataset()
 dataset:load({ id = "example_id" })
 
 -- dataset:data_get() now returns the loaded dataset data

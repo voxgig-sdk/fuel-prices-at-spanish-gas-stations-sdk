@@ -208,26 +208,14 @@ class FuelPricesAtSpanishGasStationsSDK
   end
 
 
-  # Idiomatic facade: client.dataset.list / client.dataset.load({ "id" => ... })
-  def dataset
-    require_relative 'entity/dataset_entity'
-    @dataset ||= DatasetEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.dataset instead.
+  # Canonical facade: client.Dataset.list / client.Dataset.load({ "id" => ... })
   def Dataset(data = nil)
     require_relative 'entity/dataset_entity'
     DatasetEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.distribution.list / client.distribution.load({ "id" => ... })
-  def distribution
-    require_relative 'entity/distribution_entity'
-    @distribution ||= DistributionEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.distribution instead.
+  # Canonical facade: client.Distribution.list / client.Distribution.load({ "id" => ... })
   def Distribution(data = nil)
     require_relative 'entity/distribution_entity'
     DistributionEntity.new(self, data)

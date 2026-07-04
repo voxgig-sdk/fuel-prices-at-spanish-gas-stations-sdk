@@ -205,28 +205,14 @@ class FuelPricesAtSpanishGasStationsSDK {
 
 
 
-  _dataset?: DatasetEntity
-
-  // Idiomatic facade: `client.dataset.list()` / `client.dataset.load({ id })`.
-  get dataset(): DatasetEntity {
-    return (this._dataset ??= new DatasetEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.dataset` instead. */
+  // Entity access: `client.Dataset().list()` / `client.Dataset().load({ id })`.
   Dataset(data?: any) {
     const self = this
     return new DatasetEntity(self,data)
   }
 
 
-  _distribution?: DistributionEntity
-
-  // Idiomatic facade: `client.distribution.list()` / `client.distribution.load({ id })`.
-  get distribution(): DistributionEntity {
-    return (this._distribution ??= new DistributionEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.distribution` instead. */
+  // Entity access: `client.Distribution().list()` / `client.Distribution().load({ id })`.
   Distribution(data?: any) {
     const self = this
     return new DistributionEntity(self,data)

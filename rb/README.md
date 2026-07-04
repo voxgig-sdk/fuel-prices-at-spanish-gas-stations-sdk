@@ -32,8 +32,9 @@ client = FuelPricesAtSpanishGasStationsSDK.new
 
 ```ruby
 begin
-  result = client.dataset.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Dataset record (raises on error).
+  dataset = client.Dataset.load({ "id" => "example_id" })
+  puts dataset
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = FuelPricesAtSpanishGasStationsSDK.test
+client = FuelPricesAtSpanishGasStationsSDK.test({
+  "entity" => { "dataset" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.dataset.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+dataset = client.Dataset.load({ "id" => "test01" })
+puts dataset
 ```
 
 ### Use a custom fetch function
@@ -237,7 +242,7 @@ API path: `/catalog/distribution`
 
 ### Dataset
 
-Create an instance: `const dataset = client.dataset`
+Create an instance: `dataset = client.Dataset`
 
 #### Operations
 
@@ -261,14 +266,15 @@ Create an instance: `const dataset = client.dataset`
 
 #### Example: Load
 
-```ts
-const dataset = await client.dataset.load({ id: 'dataset_id' })
+```ruby
+# load returns the bare Dataset record (raises on error).
+dataset = client.Dataset.load({ "id" => "dataset_id" })
 ```
 
 
 ### Distribution
 
-Create an instance: `const distribution = client.distribution`
+Create an instance: `distribution = client.Distribution`
 
 #### Operations
 
@@ -284,8 +290,9 @@ Create an instance: `const distribution = client.distribution`
 
 #### Example: Load
 
-```ts
-const distribution = await client.distribution.load({ id: 'distribution_id' })
+```ruby
+# load returns the bare Distribution record (raises on error).
+distribution = client.Distribution.load({ "id" => "distribution_id" })
 ```
 
 
@@ -360,7 +367,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-dataset = client.dataset
+dataset = client.Dataset
 dataset.load({ "id" => "example_id" })
 
 # dataset.data_get now returns the loaded dataset data

@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:dataset():list() / client:dataset():load({ id = ... })
-function FuelPricesAtSpanishGasStationsSDK:dataset(data)
+-- Idiomatic facade: client:Dataset():list() / client:Dataset():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FuelPricesAtSpanishGasStationsSDK:Dataset(data)
   local EntityMod = require("entity.dataset_entity")
   if data == nil then
     if self._dataset == nil then
@@ -256,15 +257,10 @@ function FuelPricesAtSpanishGasStationsSDK:dataset(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:dataset() instead.
-function FuelPricesAtSpanishGasStationsSDK:Dataset(data)
-  local EntityMod = require("entity.dataset_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:distribution():list() / client:distribution():load({ id = ... })
-function FuelPricesAtSpanishGasStationsSDK:distribution(data)
+-- Idiomatic facade: client:Distribution():list() / client:Distribution():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FuelPricesAtSpanishGasStationsSDK:Distribution(data)
   local EntityMod = require("entity.distribution_entity")
   if data == nil then
     if self._distribution == nil then
@@ -272,12 +268,6 @@ function FuelPricesAtSpanishGasStationsSDK:distribution(data)
     end
     return self._distribution
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:distribution() instead.
-function FuelPricesAtSpanishGasStationsSDK:Distribution(data)
-  local EntityMod = require("entity.distribution_entity")
   return EntityMod.new(self, data)
 end
 

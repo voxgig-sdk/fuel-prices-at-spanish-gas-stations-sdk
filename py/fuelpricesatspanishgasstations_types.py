@@ -4,37 +4,37 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Dataset:
-    description: Optional[str] = None
-    distribution: Optional[list] = None
-    id: Optional[str] = None
-    keyword: Optional[list] = None
-    modified: Optional[str] = None
-    publisher: Optional[dict] = None
-    result: Optional[dict] = None
-    theme: Optional[list] = None
-    title: Optional[str] = None
+class Dataset(TypedDict, total=False):
+    description: str
+    distribution: list
+    id: str
+    keyword: list
+    modified: str
+    publisher: dict
+    result: dict
+    theme: list
+    title: str
 
 
-@dataclass
-class DatasetLoadMatch:
+class DatasetLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Distribution:
-    result: Optional[dict] = None
+class Distribution(TypedDict, total=False):
+    result: dict
 
 
-@dataclass
-class DistributionLoadMatch:
-    result: Optional[dict] = None
-
+class DistributionLoadMatch(TypedDict, total=False):
+    result: dict

@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## DatasetEntity
 
 ```lua
-local dataset = client:dataset(nil)
+local dataset = client:Dataset(nil)
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ local dataset = client:dataset(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:dataset():load({ id = "dataset_id" })
+local result, err = client:Dataset():load({ id = "dataset_id" })
 ```
 
 ### Common Methods
@@ -147,7 +147,7 @@ Return the entity name.
 ## DistributionEntity
 
 ```lua
-local distribution = client:distribution(nil)
+local distribution = client:Distribution(nil)
 ```
 
 ### Fields
@@ -163,7 +163,7 @@ local distribution = client:distribution(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:distribution():load({ id = "distribution_id" })
+local result, err = client:Distribution():load({ id = "distribution_id" })
 ```
 
 ### Common Methods

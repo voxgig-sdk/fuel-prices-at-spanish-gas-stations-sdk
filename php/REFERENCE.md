@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## DatasetEntity
 
 ```php
-$dataset = $client->dataset();
+$dataset = $client->Dataset();
 ```
 
 ### Fields
@@ -113,7 +113,7 @@ $dataset = $client->dataset();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->dataset()->load(["id" => "dataset_id"]);
+$result = $client->Dataset()->load(["id" => "dataset_id"]);
 ```
 
 ### Common Methods
@@ -149,7 +149,7 @@ Return the entity name.
 ## DistributionEntity
 
 ```php
-$distribution = $client->distribution();
+$distribution = $client->Distribution();
 ```
 
 ### Fields
@@ -165,7 +165,7 @@ $distribution = $client->distribution();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->distribution()->load(["id" => "distribution_id"]);
+$result = $client->Distribution()->load(["id" => "distribution_id"]);
 ```
 
 ### Common Methods

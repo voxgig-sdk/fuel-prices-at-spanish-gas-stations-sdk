@@ -121,7 +121,7 @@ Alias for `FuelPricesAtSpanishGasStationsSDK.test()`.
 ## DatasetEntity
 
 ```ts
-const dataset = client.dataset
+const dataset = client.Dataset()
 ```
 
 ### Fields
@@ -145,7 +145,7 @@ const dataset = client.dataset
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.dataset.load({ id: 'dataset_id' })
+const result = await client.Dataset().load({ id: 'dataset_id' })
 ```
 
 ### Common Methods
@@ -179,7 +179,7 @@ Return a copy of the entity options.
 ## DistributionEntity
 
 ```ts
-const distribution = client.distribution
+const distribution = client.Distribution()
 ```
 
 ### Fields
@@ -195,7 +195,7 @@ const distribution = client.distribution
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.distribution.load({ id: 'distribution_id' })
+const result = await client.Distribution().load({ id: 'distribution_id' })
 ```
 
 ### Common Methods
