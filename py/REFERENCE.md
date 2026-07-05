@@ -8,7 +8,7 @@ Complete API reference for the FuelPricesAtSpanishGasStations Python SDK.
 ### Constructor
 
 ```python
-from fuel-prices-at-spanish-gas-stations_sdk import FuelPricesAtSpanishGasStationsSDK
+from fuelpricesatspanishgasstations_sdk import FuelPricesAtSpanishGasStationsSDK
 
 client = FuelPricesAtSpanishGasStationsSDK(options)
 ```
@@ -91,15 +91,15 @@ dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `distribution` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `keyword` | ``$ARRAY`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `publisher` | ``$OBJECT`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `theme` | ``$ARRAY`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `description` | `str` | No |  |
+| `distribution` | `list` | No |  |
+| `id` | `str` | No |  |
+| `keyword` | `list` | No |  |
+| `modified` | `str` | No |  |
+| `publisher` | `dict` | No |  |
+| `result` | `dict` | No |  |
+| `theme` | `list` | No |  |
+| `title` | `str` | No |  |
 
 ### Operations
 
@@ -150,7 +150,7 @@ distribution = client.Distribution()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
+| `result` | `dict` | No |  |
 
 ### Operations
 
@@ -159,7 +159,7 @@ distribution = client.Distribution()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Distribution().load({"id": "distribution_id"})
+result = client.Distribution().load()
 ```
 
 ### Common Methods

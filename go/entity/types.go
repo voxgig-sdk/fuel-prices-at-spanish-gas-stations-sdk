@@ -31,8 +31,7 @@ type Distribution struct {
 	Result *map[string]any `json:"result,omitempty"`
 }
 
-// DistributionLoadMatch mirrors the distribution fields as an all-optional match
-// filter (Go analog of Partial<Distribution>).
+// DistributionLoadMatch is the typed request payload for Distribution.LoadTyped.
 type DistributionLoadMatch struct {
 	Result *map[string]any `json:"result,omitempty"`
 }

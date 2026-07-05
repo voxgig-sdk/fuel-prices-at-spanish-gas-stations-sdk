@@ -25,5 +25,7 @@ export interface Distribution {
   result?: Record<string, any>
 }
 
-export type DistributionLoadMatch = Partial<Distribution>
+export interface DistributionLoadMatch {
+  result?: Record<string, any>
+}
 

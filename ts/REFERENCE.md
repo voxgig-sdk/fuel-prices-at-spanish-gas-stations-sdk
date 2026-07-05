@@ -128,15 +128,15 @@ const dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `distribution` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `keyword` | ``$ARRAY`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `publisher` | ``$OBJECT`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `theme` | ``$ARRAY`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `distribution` | `any[]` | No |  |
+| `id` | `string` | No |  |
+| `keyword` | `any[]` | No |  |
+| `modified` | `string` | No |  |
+| `publisher` | `Record<string, any>` | No |  |
+| `result` | `Record<string, any>` | No |  |
+| `theme` | `any[]` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
@@ -186,7 +186,7 @@ const distribution = client.Distribution()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
+| `result` | `Record<string, any>` | No |  |
 
 ### Operations
 
@@ -195,7 +195,7 @@ const distribution = client.Distribution()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Distribution().load({ id: 'distribution_id' })
+const result = await client.Distribution().load()
 ```
 
 ### Common Methods

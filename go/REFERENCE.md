@@ -101,15 +101,15 @@ dataset := client.Dataset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `distribution` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `keyword` | ``$ARRAY`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `publisher` | ``$OBJECT`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `theme` | ``$ARRAY`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `distribution` | `[]any` | No |  |
+| `id` | `string` | No |  |
+| `keyword` | `[]any` | No |  |
+| `modified` | `string` | No |  |
+| `publisher` | `map[string]any` | No |  |
+| `result` | `map[string]any` | No |  |
+| `theme` | `[]any` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
@@ -155,7 +155,7 @@ distribution := client.Distribution(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
+| `result` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -164,7 +164,7 @@ distribution := client.Distribution(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Distribution(nil).Load(map[string]any{"id": "distribution_id"}, nil)
+result, err := client.Distribution(nil).Load(nil, nil)
 ```
 
 ### Common Methods

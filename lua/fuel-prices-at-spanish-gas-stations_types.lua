@@ -24,6 +24,7 @@
 ---@field result? table
 
 ---@class DistributionLoadMatch
+---@field result? table
 
 local M = {}
 

@@ -67,7 +67,7 @@ Distribution = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Distribution#load (any subset of Distribution fields).
+# Request payload for Distribution#load.
 #
 # @!attribute [rw] result
 #   @return [Hash, nil]

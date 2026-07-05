@@ -38,7 +38,7 @@ class Distribution
     public ?array $result = null;
 }
 
-/** Match filter for Distribution#load (any subset of Distribution fields). */
+/** Request payload for Distribution#load. */
 class DistributionLoadMatch
 {
     public ?array $result = null;

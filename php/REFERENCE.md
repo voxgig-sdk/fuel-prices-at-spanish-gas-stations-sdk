@@ -8,7 +8,7 @@ Complete API reference for the FuelPricesAtSpanishGasStations PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/fuel-prices-at-spanish-gas-stations_sdk.php';
+require_once __DIR__ . '/fuelpricesatspanishgasstations_sdk.php';
 
 $client = new FuelPricesAtSpanishGasStationsSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `DatasetEntity` instance. Pass `null` for no initial data.
 
 Create a new `DistributionEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): FuelPricesAtSpanishGasStationsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,15 +96,15 @@ $dataset = $client->Dataset();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `distribution` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `keyword` | ``$ARRAY`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `publisher` | ``$OBJECT`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `theme` | ``$ARRAY`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `distribution` | `array` | No |  |
+| `id` | `string` | No |  |
+| `keyword` | `array` | No |  |
+| `modified` | `string` | No |  |
+| `publisher` | `array` | No |  |
+| `result` | `array` | No |  |
+| `theme` | `array` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
@@ -118,19 +118,19 @@ $result = $client->Dataset()->load(["id" => "dataset_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -139,7 +139,7 @@ Set the entity match criteria.
 Create a new `DatasetEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -156,7 +156,7 @@ $distribution = $client->Distribution();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
+| `result` | `array` | No |  |
 
 ### Operations
 
@@ -165,24 +165,24 @@ $distribution = $client->Distribution();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Distribution()->load(["id" => "distribution_id"]);
+$result = $client->Distribution()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -191,7 +191,7 @@ Set the entity match criteria.
 Create a new `DistributionEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

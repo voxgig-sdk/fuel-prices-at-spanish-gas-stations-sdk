@@ -94,15 +94,15 @@ local dataset = client:Dataset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `distribution` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `keyword` | ``$ARRAY`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `publisher` | ``$OBJECT`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `theme` | ``$ARRAY`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `distribution` | `table` | No |  |
+| `id` | `string` | No |  |
+| `keyword` | `table` | No |  |
+| `modified` | `string` | No |  |
+| `publisher` | `table` | No |  |
+| `result` | `table` | No |  |
+| `theme` | `table` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
@@ -154,7 +154,7 @@ local distribution = client:Distribution(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
+| `result` | `table` | No |  |
 
 ### Operations
 
@@ -163,7 +163,7 @@ local distribution = client:Distribution(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Distribution():load({ id = "distribution_id" })
+local result, err = client:Distribution():load()
 ```
 
 ### Common Methods

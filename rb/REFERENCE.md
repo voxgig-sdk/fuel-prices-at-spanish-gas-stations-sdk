@@ -8,7 +8,7 @@ Complete API reference for the FuelPricesAtSpanishGasStations Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'fuel-prices-at-spanish-gas-stations_sdk'
+require_relative 'FuelPricesAtSpanishGasStations_sdk'
 
 client = FuelPricesAtSpanishGasStationsSDK.new(options)
 ```
@@ -97,15 +97,15 @@ dataset = client.Dataset
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `distribution` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `keyword` | ``$ARRAY`` | No |  |
-| `modified` | ``$STRING`` | No |  |
-| `publisher` | ``$OBJECT`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `theme` | ``$ARRAY`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `description` | `String` | No |  |
+| `distribution` | `Array` | No |  |
+| `id` | `String` | No |  |
+| `keyword` | `Array` | No |  |
+| `modified` | `String` | No |  |
+| `publisher` | `Hash` | No |  |
+| `result` | `Hash` | No |  |
+| `theme` | `Array` | No |  |
+| `title` | `String` | No |  |
 
 ### Operations
 
@@ -157,7 +157,7 @@ distribution = client.Distribution
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
+| `result` | `Hash` | No |  |
 
 ### Operations
 
@@ -166,7 +166,7 @@ distribution = client.Distribution
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Distribution.load({ "id" => "distribution_id" })
+result = client.Distribution.load()
 ```
 
 ### Common Methods
