@@ -28,7 +28,7 @@ class Dataset(TypedDict, total=False):
     title: str
 
 
-class DatasetLoadMatch(TypedDict):
+class DatasetLoadMatch(TypedDict, total=False):
     id: str
 
 

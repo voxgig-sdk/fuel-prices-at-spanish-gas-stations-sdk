@@ -18,7 +18,7 @@
 ---@field title? string
 
 ---@class DatasetLoadMatch
----@field id string
+---@field id? string
 
 ---@class Distribution
 ---@field result? table

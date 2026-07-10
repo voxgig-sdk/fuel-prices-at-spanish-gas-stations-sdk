@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 dataset := client.Dataset(nil)
+fmt.Println(dataset.GetName()) // "dataset"
 ```
 
 ### Fields
@@ -119,6 +120,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Dataset(nil).Load(map[string]any{"id": "dataset_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -149,6 +154,7 @@ Return the entity name.
 
 ```go
 distribution := client.Distribution(nil)
+fmt.Println(distribution.GetName()) // "distribution"
 ```
 
 ### Fields
@@ -165,6 +171,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Distribution(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

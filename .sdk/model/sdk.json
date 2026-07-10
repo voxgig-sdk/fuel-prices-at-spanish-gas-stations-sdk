@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -451,14 +448,17 @@
           "url": "https://datos.gob.es"
         },
         "description": "Provides information about fuel prices at gas stations in Spain via the datos.gob.es CKAN-based data catalog API.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "datos.gob.es API server",
             "url": "https://datos.gob.es/apidata"
           }
         ],
+        "summary": "Provides information about fuel prices at gas stations in Spain via the datos.gob.es CKAN-based data catalog API.",
         "title": "Fuel Prices at Spanish Gas Stations API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://datos.gob.es"
       },
       "option": {},
       "target": {
@@ -511,6 +511,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -561,6 +564,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
