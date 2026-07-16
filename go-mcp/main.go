@@ -37,7 +37,20 @@ func main() {
 	addr := flag.String("addr", ":8080", "listen address for http transport")
 	flag.Parse()
 
-	client := sdk.NewFuelPricesAtSpanishGasStationsSDK(nil)
+	// Configure from the environment: FUEL_PRICES_AT_SPANISH_GAS_STATIONS_APIKEY carries the API key and
+	// FUEL_PRICES_AT_SPANISH_GAS_STATIONS_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewFuelPricesAtSpanishGasStationsSDK(opts)
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "fuel-prices-at-spanish-gas-stations",
