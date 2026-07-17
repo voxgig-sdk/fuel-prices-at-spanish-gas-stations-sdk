@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- FuelPricesAtSpanishGasStations SDK exists test
 
 local sdk = require("fuel-prices-at-spanish-gas-stations_sdk")
 
