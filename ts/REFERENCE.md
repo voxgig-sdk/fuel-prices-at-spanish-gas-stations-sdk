@@ -131,12 +131,15 @@ const dataset = client.Dataset()
 | `description` | `string` | No |  |
 | `distribution` | `any[]` | No |  |
 | `id` | `string` | No |  |
+| `items` | `any[]` | No |  |
 | `keyword` | `any[]` | No |  |
 | `modified` | `string` | No |  |
+| `page` | `number` | No |  |
+| `pageSize` | `number` | No |  |
 | `publisher` | `Record<string, any>` | No |  |
-| `result` | `Record<string, any>` | No |  |
 | `theme` | `any[]` | No |  |
 | `title` | `string` | No |  |
+| `totalResults` | `number` | No |  |
 
 ### Operations
 
@@ -186,7 +189,10 @@ const distribution = client.Distribution()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `Record<string, any>` | No |  |
+| `items` | `any[]` | No |  |
+| `page` | `number` | No |  |
+| `pageSize` | `number` | No |  |
+| `totalResults` | `number` | No |  |
 
 ### Operations
 

@@ -19,16 +19,22 @@
 # @!attribute [rw] id
 #   @return [String, nil]
 #
+# @!attribute [rw] items
+#   @return [Array, nil]
+#
 # @!attribute [rw] keyword
 #   @return [Array, nil]
 #
 # @!attribute [rw] modified
 #   @return [String, nil]
 #
-# @!attribute [rw] publisher
-#   @return [Hash, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] result
+# @!attribute [rw] pageSize
+#   @return [Integer, nil]
+#
+# @!attribute [rw] publisher
 #   @return [Hash, nil]
 #
 # @!attribute [rw] theme
@@ -36,16 +42,22 @@
 #
 # @!attribute [rw] title
 #   @return [String, nil]
+#
+# @!attribute [rw] totalResults
+#   @return [Integer, nil]
 Dataset = Struct.new(
   :description,
   :distribution,
   :id,
+  :items,
   :keyword,
   :modified,
+  :page,
+  :pageSize,
   :publisher,
-  :result,
   :theme,
   :title,
+  :totalResults,
   keyword_init: true
 )
 
@@ -60,19 +72,43 @@ DatasetLoadMatch = Struct.new(
 
 # Distribution entity data model.
 #
-# @!attribute [rw] result
-#   @return [Hash, nil]
+# @!attribute [rw] items
+#   @return [Array, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] pageSize
+#   @return [Integer, nil]
+#
+# @!attribute [rw] totalResults
+#   @return [Integer, nil]
 Distribution = Struct.new(
-  :result,
+  :items,
+  :page,
+  :pageSize,
+  :totalResults,
   keyword_init: true
 )
 
 # Request payload for Distribution#load.
 #
-# @!attribute [rw] result
-#   @return [Hash, nil]
+# @!attribute [rw] items
+#   @return [Array, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] pageSize
+#   @return [Integer, nil]
+#
+# @!attribute [rw] totalResults
+#   @return [Integer, nil]
 DistributionLoadMatch = Struct.new(
-  :result,
+  :items,
+  :page,
+  :pageSize,
+  :totalResults,
   keyword_init: true
 )
 

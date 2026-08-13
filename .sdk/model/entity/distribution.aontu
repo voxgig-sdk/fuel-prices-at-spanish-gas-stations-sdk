@@ -6,9 +6,24 @@ main: kit: entity: distribution: {
 
   fields: [
     {
-      name: "result"
+      name: "items"
       req: false
-      type: "`$OBJECT`"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "page"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "pageSize"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "totalResults"
+      req: false
+      type: "`$INTEGER`"
     }
   ]
 
@@ -69,7 +84,7 @@ main: kit: entity: distribution: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.result`"
           }
         }
       ]

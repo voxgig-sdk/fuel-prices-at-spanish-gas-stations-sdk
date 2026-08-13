@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE ||
-    'TRUE' === process.env.FUELPRICESATSPANISHGASSTATIONS_TEST_OVERRIDE
+    'TRUE' === process.env.FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE ||
+    'TRUE' === process.env.FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN = process.env.FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN || m.FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN
+  m.FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN = process.env.FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN || m.FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN
 
   return m
 }

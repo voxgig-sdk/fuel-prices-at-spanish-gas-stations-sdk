@@ -34,7 +34,7 @@ client = FuelPricesAtSpanishGasStationsSDK.new
 
 ```ruby
 begin
-  # load returns the bare Dataset record (raises on error).
+  # load returns the ENTITY — call data_get for the Dataset record (raises on error).
   dataset = client.Dataset.load({ "id" => "example_id" })
   puts dataset
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  dataset = client.Dataset.load({ "id" => "example_id" })
+  dataset = client.Dataset.load()
 rescue => err
   warn "load failed: #{err}"
 end
@@ -120,7 +120,8 @@ client = FuelPricesAtSpanishGasStationsSDK.test({
   "entity" => { "dataset" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 dataset = client.Dataset.load({ "id" => "test01" })
 puts dataset
 ```
@@ -241,12 +242,15 @@ returns a result `Hash` with these keys:
 | `description` |  |
 | `distribution` |  |
 | `id` |  |
+| `items` |  |
 | `keyword` |  |
 | `modified` |  |
+| `page` |  |
+| `pageSize` |  |
 | `publisher` |  |
-| `result` |  |
 | `theme` |  |
 | `title` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -256,7 +260,10 @@ API path: `/catalog/dataset`
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `items` |  |
+| `page` |  |
+| `pageSize` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -284,17 +291,20 @@ Create an instance: `dataset = client.Dataset`
 | `description` | `String` |  |
 | `distribution` | `Array` |  |
 | `id` | `String` |  |
+| `items` | `Array` |  |
 | `keyword` | `Array` |  |
 | `modified` | `String` |  |
+| `page` | `Integer` |  |
+| `pageSize` | `Integer` |  |
 | `publisher` | `Hash` |  |
-| `result` | `Hash` |  |
 | `theme` | `Array` |  |
 | `title` | `String` |  |
+| `totalResults` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Dataset record (raises on error).
+# load returns the ENTITY — call data_get for the Dataset record (raises on error).
 dataset = client.Dataset.load({ "id" => "dataset_id" })
 ```
 
@@ -313,12 +323,15 @@ Create an instance: `distribution = client.Distribution`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `Hash` |  |
+| `items` | `Array` |  |
+| `page` | `Integer` |  |
+| `pageSize` | `Integer` |  |
+| `totalResults` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Distribution record (raises on error).
+# load returns the ENTITY — call data_get for the Distribution record (raises on error).
 distribution = client.Distribution.load()
 ```
 
@@ -400,7 +413,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 dataset = client.Dataset
-dataset.load({ "id" => "example_id" })
+dataset.load()
 
 # dataset.data_get now returns the dataset data from the last load
 # dataset.match_get returns the last match criteria

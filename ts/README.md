@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const dataset = await client.Dataset().load({ id: "example_id" })
+  const dataset = await client.Dataset().load()
   console.log(dataset)
 } catch (err) {
   console.error('load failed:', err)
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = FuelPricesAtSpanishGasStationsSDK.test()
 
 const dataset = await client.Dataset().load({ id: 'test01' })
-// dataset is a bare entity populated with mock response data
+// dataset is the entity, populated with mock response data
+// — call dataset.data() for the record itself
 console.log(dataset)
 ```
 
@@ -288,12 +289,15 @@ The `prepare()` method returns:
 | `description` |  |
 | `distribution` |  |
 | `id` |  |
+| `items` |  |
 | `keyword` |  |
 | `modified` |  |
+| `page` |  |
+| `pageSize` |  |
 | `publisher` |  |
-| `result` |  |
 | `theme` |  |
 | `title` |  |
+| `totalResults` |  |
 
 Operations: load.
 
@@ -303,7 +307,10 @@ API path: `/catalog/dataset`
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `items` |  |
+| `page` |  |
+| `pageSize` |  |
+| `totalResults` |  |
 
 Operations: load.
 
@@ -331,12 +338,15 @@ Create an instance: `const dataset = client.Dataset()`
 | `description` | `string` |  |
 | `distribution` | `any[]` |  |
 | `id` | `string` |  |
+| `items` | `any[]` |  |
 | `keyword` | `any[]` |  |
 | `modified` | `string` |  |
+| `page` | `number` |  |
+| `pageSize` | `number` |  |
 | `publisher` | `Record<string, any>` |  |
-| `result` | `Record<string, any>` |  |
 | `theme` | `any[]` |  |
 | `title` | `string` |  |
+| `totalResults` | `number` |  |
 
 #### Example: Load
 
@@ -359,7 +369,10 @@ Create an instance: `const distribution = client.Distribution()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `Record<string, any>` |  |
+| `items` | `any[]` |  |
+| `page` | `number` |  |
+| `pageSize` | `number` |  |
+| `totalResults` | `number` |  |
 
 #### Example: Load
 
@@ -438,7 +451,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const dataset = client.Dataset()
-await dataset.load({ id: "example_id" })
+await dataset.load()
 
 // dataset.data() now returns the dataset data from the last `load`
 // dataset.match() returns { id: "example_id" }

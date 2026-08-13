@@ -100,12 +100,15 @@ dataset = client.Dataset
 | `description` | `String` | No |  |
 | `distribution` | `Array` | No |  |
 | `id` | `String` | No |  |
+| `items` | `Array` | No |  |
 | `keyword` | `Array` | No |  |
 | `modified` | `String` | No |  |
+| `page` | `Integer` | No |  |
+| `pageSize` | `Integer` | No |  |
 | `publisher` | `Hash` | No |  |
-| `result` | `Hash` | No |  |
 | `theme` | `Array` | No |  |
 | `title` | `String` | No |  |
+| `totalResults` | `Integer` | No |  |
 
 ### Operations
 
@@ -157,7 +160,10 @@ distribution = client.Distribution
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `Hash` | No |  |
+| `items` | `Array` | No |  |
+| `page` | `Integer` | No |  |
+| `pageSize` | `Integer` | No |  |
+| `totalResults` | `Integer` | No |  |
 
 ### Operations
 

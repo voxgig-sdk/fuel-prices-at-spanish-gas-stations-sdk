@@ -2,15 +2,24 @@
   "existing": {
     "distribution": {
       "DISTRIBUTION00": {
-        "result": {},
+        "items": [],
+        "page": "s29",
+        "pageSize": "s2a",
+        "totalResults": "s2b",
         "id": "DISTRIBUTION00"
       },
       "DISTRIBUTION01": {
-        "result": {},
+        "items": [],
+        "page": "s51",
+        "pageSize": "s52",
+        "totalResults": "s53",
         "id": "DISTRIBUTION01"
       },
       "DISTRIBUTION02": {
-        "result": {},
+        "items": [],
+        "page": "s79",
+        "pageSize": "s7a",
+        "totalResults": "s7b",
         "id": "DISTRIBUTION02"
       }
     }
@@ -18,7 +27,10 @@
   "new": {
     "distribution": {
       "distribution_ref01": {
-        "result": {}
+        "items": [],
+        "page": "sa1",
+        "pageSize": "sa2",
+        "totalResults": "sa3"
       }
     }
   }

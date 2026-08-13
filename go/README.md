@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-dataset, err := client.Dataset(nil).Load(map[string]any{"id": "example_id"}, nil)
+dataset, err := client.Dataset(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
@@ -262,12 +262,15 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"description"` |  |
 | `"distribution"` |  |
 | `"id"` |  |
+| `"items"` |  |
 | `"keyword"` |  |
 | `"modified"` |  |
+| `"page"` |  |
+| `"pageSize"` |  |
 | `"publisher"` |  |
-| `"result"` |  |
 | `"theme"` |  |
 | `"title"` |  |
+| `"totalResults"` |  |
 
 Operations: Load.
 
@@ -277,7 +280,10 @@ API path: `/catalog/dataset`
 
 | Field | Description |
 | --- | --- |
-| `"result"` |  |
+| `"items"` |  |
+| `"page"` |  |
+| `"pageSize"` |  |
+| `"totalResults"` |  |
 
 Operations: Load.
 
@@ -305,12 +311,15 @@ Create an instance: `dataset := client.Dataset(nil)`
 | `description` | `string` |  |
 | `distribution` | `[]any` |  |
 | `id` | `string` |  |
+| `items` | `[]any` |  |
 | `keyword` | `[]any` |  |
 | `modified` | `string` |  |
+| `page` | `int` |  |
+| `pageSize` | `int` |  |
 | `publisher` | `map[string]any` |  |
-| `result` | `map[string]any` |  |
 | `theme` | `[]any` |  |
 | `title` | `string` |  |
+| `totalResults` | `int` |  |
 
 #### Example: Load
 
@@ -337,7 +346,10 @@ Create an instance: `distribution := client.Distribution(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `map[string]any` |  |
+| `items` | `[]any` |  |
+| `page` | `int` |  |
+| `pageSize` | `int` |  |
+| `totalResults` | `int` |  |
 
 #### Example: Load
 
@@ -424,7 +436,7 @@ stores the returned data and match criteria internally.
 
 ```go
 dataset := client.Dataset(nil)
-dataset.Load(map[string]any{"id": "example_id"}, nil)
+dataset.Load(nil, nil)
 
 // dataset.Data() now returns the dataset data from the last load
 // dataset.Match() returns the last match criteria

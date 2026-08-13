@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FuelPricesAtSpanishGasStationsControl
-from core.error import FuelPricesAtSpanishGasStationsError
-from core.result import FuelPricesAtSpanishGasStationsResult
-from core.spec import FuelPricesAtSpanishGasStationsSpec
+from fuelpricesatspanishgasstations_sdk.config import make_config
+from fuelpricesatspanishgasstations_sdk.features import _make_feature
+from fuelpricesatspanishgasstations_sdk.core.control import FuelPricesAtSpanishGasStationsControl
+from fuelpricesatspanishgasstations_sdk.core.error import FuelPricesAtSpanishGasStationsError
+from fuelpricesatspanishgasstations_sdk.core.result import FuelPricesAtSpanishGasStationsResult
+from fuelpricesatspanishgasstations_sdk.core.spec import FuelPricesAtSpanishGasStationsSpec
 
 
 # True when this SDK was generated with the named feature.

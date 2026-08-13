@@ -97,12 +97,15 @@ local dataset = client:Dataset(nil)
 | `description` | `string` | No |  |
 | `distribution` | `table` | No |  |
 | `id` | `string` | No |  |
+| `items` | `table` | No |  |
 | `keyword` | `table` | No |  |
 | `modified` | `string` | No |  |
+| `page` | `number` | No |  |
+| `pageSize` | `number` | No |  |
 | `publisher` | `table` | No |  |
-| `result` | `table` | No |  |
 | `theme` | `table` | No |  |
 | `title` | `string` | No |  |
+| `totalResults` | `number` | No |  |
 
 ### Operations
 
@@ -154,7 +157,10 @@ local distribution = client:Distribution(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `table` | No |  |
+| `items` | `table` | No |  |
+| `page` | `number` | No |  |
+| `pageSize` | `number` | No |  |
+| `totalResults` | `number` | No |  |
 
 ### Operations
 

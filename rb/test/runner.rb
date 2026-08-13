@@ -23,8 +23,8 @@ module FuelPricesAtSpanishGasStationsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE")
-    override = getenv("FUELPRICESATSPANISHGASSTATIONS_TEST_OVERRIDE")
+    live = getenv("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE")
+    override = getenv("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module FuelPricesAtSpanishGasStationsTestRunner
       end
     end
 
-    explain = getenv("FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN")
-    m["FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN")
+    m["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'FuelPricesAtSpanishGasStations',
   }
 
 
@@ -80,45 +80,66 @@ class Config {
         },
         {
           "active": true,
-          "name": "keyword",
+          "name": "items",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 3
         },
         {
           "active": true,
+          "name": "keyword",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 4
+        },
+        {
+          "active": true,
           "name": "modified",
           "req": false,
           "type": "`$STRING`",
-          "index$": 4
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "page",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "pageSize",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 7
         },
         {
           "active": true,
           "name": "publisher",
           "req": false,
           "type": "`$OBJECT`",
-          "index$": 5
-        },
-        {
-          "active": true,
-          "name": "result",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 6
+          "index$": 8
         },
         {
           "active": true,
           "name": "theme",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 7
+          "index$": 9
         },
         {
           "active": true,
           "name": "title",
           "req": false,
           "type": "`$STRING`",
-          "index$": 8
+          "index$": 10
+        },
+        {
+          "active": true,
+          "name": "totalResults",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 11
         }
       ],
       "name": "dataset",
@@ -176,6 +197,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/catalog/dataset",
               "parts": [
@@ -193,7 +215,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.result`"
               },
               "index$": 0
             },
@@ -212,6 +234,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/catalog/dataset/{id}",
               "parts": [
@@ -242,10 +265,31 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "result",
+          "name": "items",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$ARRAY`",
           "index$": 0
+        },
+        {
+          "active": true,
+          "name": "page",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 1
+        },
+        {
+          "active": true,
+          "name": "pageSize",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "totalResults",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 3
         }
       ],
       "name": "distribution",
@@ -295,6 +339,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/catalog/distribution",
               "parts": [
@@ -311,7 +356,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.result`"
               },
               "index$": 0
             }

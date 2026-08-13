@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ FuelPricesAtSpanishGasStationsUtility::setRegistrar(function (FuelPricesAtSpanis
     $u->prepare_params = [FuelPricesAtSpanishGasStationsPrepareParams::class, 'call'];
     $u->prepare_path = [FuelPricesAtSpanishGasStationsPreparePath::class, 'call'];
     $u->prepare_query = [FuelPricesAtSpanishGasStationsPrepareQuery::class, 'call'];
+    $u->graphql_body = [FuelPricesAtSpanishGasStationsGraphql::class, 'body'];
+    $u->graphql_errors = [FuelPricesAtSpanishGasStationsGraphql::class, 'errors'];
     $u->result_basic = [FuelPricesAtSpanishGasStationsResultBasic::class, 'call'];
     $u->result_body = [FuelPricesAtSpanishGasStationsResultBody::class, 'call'];
     $u->result_headers = [FuelPricesAtSpanishGasStationsResultHeaders::class, 'call'];

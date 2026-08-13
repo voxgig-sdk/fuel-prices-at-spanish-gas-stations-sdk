@@ -10,21 +10,30 @@
 ---@field description? string
 ---@field distribution? table
 ---@field id? string
+---@field items? table
 ---@field keyword? table
 ---@field modified? string
+---@field page? number
+---@field pageSize? number
 ---@field publisher? table
----@field result? table
 ---@field theme? table
 ---@field title? string
+---@field totalResults? number
 
 ---@class DatasetLoadMatch
 ---@field id? string
 
 ---@class Distribution
----@field result? table
+---@field items? table
+---@field page? number
+---@field pageSize? number
+---@field totalResults? number
 
 ---@class DistributionLoadMatch
----@field result? table
+---@field items? table
+---@field page? number
+---@field pageSize? number
+---@field totalResults? number
 
 local M = {}
 

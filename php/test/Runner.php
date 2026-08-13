@@ -43,8 +43,8 @@ class FuelPricesAtSpanishGasStationsTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE');
-        $override = self::getenv('FUELPRICESATSPANISHGASSTATIONS_TEST_OVERRIDE');
+        $live = self::getenv('FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE');
+        $override = self::getenv('FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class FuelPricesAtSpanishGasStationsTestRunner
             }
         }
 
-        $explain = self::getenv('FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN');
+        $explain = self::getenv('FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN'] = $explain;
+            $m['FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

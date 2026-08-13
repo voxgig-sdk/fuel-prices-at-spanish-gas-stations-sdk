@@ -35,7 +35,7 @@ $client = new FuelPricesAtSpanishGasStationsSDK();
 
 ```php
 try {
-    // load() returns the bare Dataset record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Dataset record (throws on error).
     $dataset = $client->Dataset()->load(["id" => "example_id"]);
     print_r($dataset);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $dataset = $client->Dataset()->load(["id" => "example_id"]);
+    $dataset = $client->Dataset()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -126,7 +126,8 @@ $client = FuelPricesAtSpanishGasStationsSDK::test([
     "entity" => ["dataset" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $dataset = $client->Dataset()->load(["id" => "test01"]);
 print_r($dataset);
 ```
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -251,12 +252,15 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `description` |  |
 | `distribution` |  |
 | `id` |  |
+| `items` |  |
 | `keyword` |  |
 | `modified` |  |
+| `page` |  |
+| `pageSize` |  |
 | `publisher` |  |
-| `result` |  |
 | `theme` |  |
 | `title` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -266,7 +270,10 @@ API path: `/catalog/dataset`
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `items` |  |
+| `page` |  |
+| `pageSize` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -294,17 +301,20 @@ Create an instance: `$dataset = $client->Dataset();`
 | `description` | `string` |  |
 | `distribution` | `array` |  |
 | `id` | `string` |  |
+| `items` | `array` |  |
 | `keyword` | `array` |  |
 | `modified` | `string` |  |
+| `page` | `int` |  |
+| `pageSize` | `int` |  |
 | `publisher` | `array` |  |
-| `result` | `array` |  |
 | `theme` | `array` |  |
 | `title` | `string` |  |
+| `totalResults` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Dataset record (throws on error).
+// load() returns the ENTITY — call data_get() for the Dataset record (throws on error).
 $dataset = $client->Dataset()->load(["id" => "dataset_id"]);
 ```
 
@@ -323,12 +333,15 @@ Create an instance: `$distribution = $client->Distribution();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `array` |  |
+| `items` | `array` |  |
+| `page` | `int` |  |
+| `pageSize` | `int` |  |
+| `totalResults` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Distribution record (throws on error).
+// load() returns the ENTITY — call data_get() for the Distribution record (throws on error).
 $distribution = $client->Distribution()->load();
 ```
 
@@ -410,7 +423,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $dataset = $client->Dataset();
-$dataset->load(["id" => "example_id"]);
+$dataset->load();
 
 // $dataset->data_get() now returns the dataset data from the last load
 // $dataset->match_get() returns the last match criteria

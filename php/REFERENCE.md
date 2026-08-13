@@ -99,12 +99,15 @@ $dataset = $client->Dataset();
 | `description` | `string` | No |  |
 | `distribution` | `array` | No |  |
 | `id` | `string` | No |  |
+| `items` | `array` | No |  |
 | `keyword` | `array` | No |  |
 | `modified` | `string` | No |  |
+| `page` | `int` | No |  |
+| `pageSize` | `int` | No |  |
 | `publisher` | `array` | No |  |
-| `result` | `array` | No |  |
 | `theme` | `array` | No |  |
 | `title` | `string` | No |  |
+| `totalResults` | `int` | No |  |
 
 ### Operations
 
@@ -156,7 +159,10 @@ $distribution = $client->Distribution();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `array` | No |  |
+| `items` | `array` | No |  |
+| `page` | `int` | No |  |
+| `pageSize` | `int` | No |  |
+| `totalResults` | `int` | No |  |
 
 ### Operations
 

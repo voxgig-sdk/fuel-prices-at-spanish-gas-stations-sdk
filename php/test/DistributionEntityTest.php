@@ -33,7 +33,7 @@ class DistributionEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -77,22 +77,22 @@ function distribution_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID");
+    $entid_env_raw = getenv("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID" => $idmap,
-        "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE" => "FALSE",
-        "FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN" => "FALSE",
+        "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID" => $idmap,
+        "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE" => "FALSE",
+        "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID"]);
+        $env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] === "TRUE") {
+    if ($env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -101,13 +101,13 @@ function distribution_basic_setup($extra)
         $client = new FuelPricesAtSpanishGasStationsSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] === "TRUE";
+    $live = $env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

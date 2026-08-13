@@ -26,8 +26,8 @@ import {
 describe('DistributionEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = FuelPricesAtSpanishGasStationsSDK.test()
@@ -62,7 +62,7 @@ describe('DistributionEntity', async () => {
     // LOAD
     const distribution_ref01_ent = client.Distribution()
     const distribution_ref01_match_dt0: any = {}
-    const distribution_ref01_data_dt0 = await distribution_ref01_ent.load(distribution_ref01_match_dt0)
+    const distribution_ref01_data_dt0 = (await distribution_ref01_ent.load(distribution_ref01_match_dt0)).data()
     assert(null != distribution_ref01_data_dt0)
 
 

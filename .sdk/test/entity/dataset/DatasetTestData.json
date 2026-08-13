@@ -2,51 +2,63 @@
   "existing": {
     "dataset": {
       "DATASET00": {
-        "description": "s5a",
+        "description": "s78",
         "distribution": [],
         "id": "DATASET00",
+        "items": [],
         "keyword": [],
-        "modified": "s5e",
+        "modified": "s7d",
+        "page": "s7e",
+        "pageSize": "s7f",
         "publisher": {},
-        "result": {},
         "theme": [],
-        "title": "s62"
+        "title": "s82",
+        "totalResults": "s83"
       },
       "DATASET01": {
-        "description": "sb4",
+        "description": "sf0",
         "distribution": [],
         "id": "DATASET01",
+        "items": [],
         "keyword": [],
-        "modified": "sb8",
+        "modified": "sf5",
+        "page": "sf6",
+        "pageSize": "sf7",
         "publisher": {},
-        "result": {},
         "theme": [],
-        "title": "sbc"
+        "title": "sfa",
+        "totalResults": "sfb"
       },
       "DATASET02": {
-        "description": "s10e",
+        "description": "s168",
         "distribution": [],
         "id": "DATASET02",
+        "items": [],
         "keyword": [],
-        "modified": "s112",
+        "modified": "s16d",
+        "page": "s16e",
+        "pageSize": "s16f",
         "publisher": {},
-        "result": {},
         "theme": [],
-        "title": "s116"
+        "title": "s172",
+        "totalResults": "s173"
       }
     }
   },
   "new": {
     "dataset": {
       "dataset_ref01": {
-        "description": "s168",
+        "description": "s1e0",
         "distribution": [],
+        "items": [],
         "keyword": [],
-        "modified": "s16c",
+        "modified": "s1e5",
+        "page": "s1e6",
+        "pageSize": "s1e7",
         "publisher": {},
-        "result": {},
         "theme": [],
-        "title": "s170"
+        "title": "s1ea",
+        "totalResults": "s1eb"
       }
     }
   }

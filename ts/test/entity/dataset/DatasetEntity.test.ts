@@ -26,8 +26,8 @@ import {
 describe('DatasetEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = FuelPricesAtSpanishGasStationsSDK.test()
@@ -63,7 +63,7 @@ describe('DatasetEntity', async () => {
     const dataset_ref01_ent = client.Dataset()
     const dataset_ref01_match_dt0: any = {}
     dataset_ref01_match_dt0.id = dataset_ref01_data.id
-    const dataset_ref01_data_dt0 = await dataset_ref01_ent.load(dataset_ref01_match_dt0)
+    const dataset_ref01_data_dt0 = (await dataset_ref01_ent.load(dataset_ref01_match_dt0)).data()
     assert(dataset_ref01_data_dt0.id === dataset_ref01_data.id)
 
 

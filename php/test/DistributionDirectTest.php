@@ -65,11 +65,11 @@ function distribution_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID" => [],
-        "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE" => "FALSE",
+        "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID" => [],
+        "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] === "TRUE";
+    $live = $env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

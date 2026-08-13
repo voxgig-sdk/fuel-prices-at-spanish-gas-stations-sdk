@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from fuelpricesatspanishgasstations_sdk.utility.voxgig_struct import voxgig_struct as vs
 from fuelpricesatspanishgasstations_sdk import FuelPricesAtSpanishGasStationsSDK
-from core import helpers
+from fuelpricesatspanishgasstations_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _dataset_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID": {},
-        "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE": "FALSE",
+        "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID": {},
+        "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE") == "TRUE"
+    live = env.get("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

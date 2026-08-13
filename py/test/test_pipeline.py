@@ -16,11 +16,11 @@
 import pytest
 
 from fuelpricesatspanishgasstations_sdk import FuelPricesAtSpanishGasStationsSDK
-from core.error import FuelPricesAtSpanishGasStationsError
-from core.result import FuelPricesAtSpanishGasStationsResult
-from core.response import FuelPricesAtSpanishGasStationsResponse
-from core.spec import FuelPricesAtSpanishGasStationsSpec
-from feature.base_feature import FuelPricesAtSpanishGasStationsBaseFeature
+from fuelpricesatspanishgasstations_sdk.core.error import FuelPricesAtSpanishGasStationsError
+from fuelpricesatspanishgasstations_sdk.core.result import FuelPricesAtSpanishGasStationsResult
+from fuelpricesatspanishgasstations_sdk.core.response import FuelPricesAtSpanishGasStationsResponse
+from fuelpricesatspanishgasstations_sdk.core.spec import FuelPricesAtSpanishGasStationsSpec
+from fuelpricesatspanishgasstations_sdk.feature.base_feature import FuelPricesAtSpanishGasStationsBaseFeature
 
 
 def _client():

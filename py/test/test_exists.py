@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# FuelPricesAtSpanishGasStations SDK exists test
 
 import pytest
 from fuelpricesatspanishgasstations_sdk import FuelPricesAtSpanishGasStationsSDK

@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local dataset, err = client:Dataset():load({ id = "example_id" })
+local dataset, err = client:Dataset():load()
 if err then error(err) end
 ```
 
@@ -229,12 +229,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `description` |  |
 | `distribution` |  |
 | `id` |  |
+| `items` |  |
 | `keyword` |  |
 | `modified` |  |
+| `page` |  |
+| `pageSize` |  |
 | `publisher` |  |
-| `result` |  |
 | `theme` |  |
 | `title` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -244,7 +247,10 @@ API path: `/catalog/dataset`
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `items` |  |
+| `page` |  |
+| `pageSize` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -272,12 +278,15 @@ Create an instance: `local dataset = client:Dataset(nil)`
 | `description` | `string` |  |
 | `distribution` | `table` |  |
 | `id` | `string` |  |
+| `items` | `table` |  |
 | `keyword` | `table` |  |
 | `modified` | `string` |  |
+| `page` | `number` |  |
+| `pageSize` | `number` |  |
 | `publisher` | `table` |  |
-| `result` | `table` |  |
 | `theme` | `table` |  |
 | `title` | `string` |  |
+| `totalResults` | `number` |  |
 
 #### Example: Load
 
@@ -300,7 +309,10 @@ Create an instance: `local distribution = client:Distribution(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `table` |  |
+| `items` | `table` |  |
+| `page` | `number` |  |
+| `pageSize` | `number` |  |
+| `totalResults` | `number` |  |
 
 #### Example: Load
 
@@ -386,7 +398,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local dataset = client:Dataset()
-dataset:load({ id = "example_id" })
+dataset:load()
 
 -- dataset:data_get() now returns the dataset data from the last load
 -- dataset:match_get() returns the last match criteria

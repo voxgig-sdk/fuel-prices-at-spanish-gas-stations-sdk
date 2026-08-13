@@ -105,12 +105,15 @@ fmt.Println(dataset.GetName()) // "dataset"
 | `description` | `string` | No |  |
 | `distribution` | `[]any` | No |  |
 | `id` | `string` | No |  |
+| `items` | `[]any` | No |  |
 | `keyword` | `[]any` | No |  |
 | `modified` | `string` | No |  |
+| `page` | `int` | No |  |
+| `pageSize` | `int` | No |  |
 | `publisher` | `map[string]any` | No |  |
-| `result` | `map[string]any` | No |  |
 | `theme` | `[]any` | No |  |
 | `title` | `string` | No |  |
+| `totalResults` | `int` | No |  |
 
 ### Operations
 
@@ -161,7 +164,10 @@ fmt.Println(distribution.GetName()) // "distribution"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `map[string]any` | No |  |
+| `items` | `[]any` | No |  |
+| `page` | `int` | No |  |
+| `pageSize` | `int` | No |  |
+| `totalResults` | `int` | No |  |
 
 ### Operations
 

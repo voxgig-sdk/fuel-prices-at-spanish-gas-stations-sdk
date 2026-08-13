@@ -29,7 +29,7 @@ describe("DistributionEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -84,22 +84,22 @@ function distribution_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID")
+  local entid_env_raw = os.getenv("FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID"] = idmap,
-    ["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] = "FALSE",
-    ["FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN"] = "FALSE",
+    ["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID"] = idmap,
+    ["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] = "FALSE",
+    ["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN"] = "FALSE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["FUELPRICESATSPANISHGASSTATIONS_TEST_DISTRIBUTION_ENTID"])
+    env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DISTRIBUTION_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE" then
+  if env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
       },
@@ -108,13 +108,13 @@ function distribution_basic_setup(extra)
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE"
+  local live = env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN"] == "TRUE",
+    explain = env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

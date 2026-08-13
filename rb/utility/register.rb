@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FuelPricesAtSpanishGasStationsUtility.registrar = ->(u) {
   u.prepare_params = FuelPricesAtSpanishGasStationsUtilities::PrepareParams
   u.prepare_path = FuelPricesAtSpanishGasStationsUtilities::PreparePath
   u.prepare_query = FuelPricesAtSpanishGasStationsUtilities::PrepareQuery
+  u.graphql_body = FuelPricesAtSpanishGasStationsUtilities::GraphqlBody
+  u.graphql_errors = FuelPricesAtSpanishGasStationsUtilities::GraphqlErrors
   u.result_basic = FuelPricesAtSpanishGasStationsUtilities::ResultBasic
   u.result_body = FuelPricesAtSpanishGasStationsUtilities::ResultBody
   u.result_headers = FuelPricesAtSpanishGasStationsUtilities::ResultHeaders

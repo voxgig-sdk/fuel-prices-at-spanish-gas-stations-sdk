@@ -94,12 +94,15 @@ dataset = client.Dataset()
 | `description` | `str` | No |  |
 | `distribution` | `list` | No |  |
 | `id` | `str` | No |  |
+| `items` | `list` | No |  |
 | `keyword` | `list` | No |  |
 | `modified` | `str` | No |  |
+| `page` | `int` | No |  |
+| `pageSize` | `int` | No |  |
 | `publisher` | `dict` | No |  |
-| `result` | `dict` | No |  |
 | `theme` | `list` | No |  |
 | `title` | `str` | No |  |
+| `totalResults` | `int` | No |  |
 
 ### Operations
 
@@ -150,7 +153,10 @@ distribution = client.Distribution()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `dict` | No |  |
+| `items` | `list` | No |  |
+| `page` | `int` | No |  |
+| `pageSize` | `int` | No |  |
+| `totalResults` | `int` | No |  |
 
 ### Operations
 

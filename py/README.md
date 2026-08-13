@@ -38,7 +38,7 @@ client = FuelPricesAtSpanishGasStationsSDK()
 
 ### 3. Load a dataset
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    dataset = client.Dataset().load({"id": "example_id"})
+    dataset = client.Dataset().load()
     print(dataset)
 except Exception as err:
     print(f"load failed: {err}")
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FuelPricesAtSpanishGasStationsSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 dataset = client.Dataset().load({"id": "test01"})
 # dataset contains the mock response record
 ```
@@ -219,7 +220,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -244,12 +245,15 @@ On error, `ok` is `False` and `err` contains the error value.
 | `description` |  |
 | `distribution` |  |
 | `id` |  |
+| `items` |  |
 | `keyword` |  |
 | `modified` |  |
+| `page` |  |
+| `pageSize` |  |
 | `publisher` |  |
-| `result` |  |
 | `theme` |  |
 | `title` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -259,7 +263,10 @@ API path: `/catalog/dataset`
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `items` |  |
+| `page` |  |
+| `pageSize` |  |
+| `totalResults` |  |
 
 Operations: Load.
 
@@ -287,12 +294,15 @@ Create an instance: `dataset = client.Dataset()`
 | `description` | `str` |  |
 | `distribution` | `list` |  |
 | `id` | `str` |  |
+| `items` | `list` |  |
 | `keyword` | `list` |  |
 | `modified` | `str` |  |
+| `page` | `int` |  |
+| `pageSize` | `int` |  |
 | `publisher` | `dict` |  |
-| `result` | `dict` |  |
 | `theme` | `list` |  |
 | `title` | `str` |  |
+| `totalResults` | `int` |  |
 
 #### Example: Load
 
@@ -315,7 +325,10 @@ Create an instance: `distribution = client.Distribution()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `dict` |  |
+| `items` | `list` |  |
+| `page` | `int` |  |
+| `pageSize` | `int` |  |
+| `totalResults` | `int` |  |
 
 #### Example: Load
 
@@ -400,7 +413,7 @@ stores the returned data and match criteria internally.
 
 ```python
 dataset = client.Dataset()
-dataset.load({"id": "example_id"})
+dataset.load()
 
 # dataset.data_get() now returns the dataset data from the last load
 # dataset.match_get() returns the last match criteria

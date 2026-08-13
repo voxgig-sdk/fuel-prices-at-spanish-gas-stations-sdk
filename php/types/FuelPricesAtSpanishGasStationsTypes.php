@@ -18,12 +18,15 @@ class Dataset
     public ?string $description = null;
     public ?array $distribution = null;
     public ?string $id = null;
+    public ?array $items = null;
     public ?array $keyword = null;
     public ?string $modified = null;
+    public ?int $page = null;
+    public ?int $pageSize = null;
     public ?array $publisher = null;
-    public ?array $result = null;
     public ?array $theme = null;
     public ?string $title = null;
+    public ?int $totalResults = null;
 }
 
 /** Request payload for Dataset#load. */
@@ -35,12 +38,18 @@ class DatasetLoadMatch
 /** Distribution entity data model. */
 class Distribution
 {
-    public ?array $result = null;
+    public ?array $items = null;
+    public ?int $page = null;
+    public ?int $pageSize = null;
+    public ?int $totalResults = null;
 }
 
 /** Request payload for Distribution#load. */
 class DistributionLoadMatch
 {
-    public ?array $result = null;
+    public ?array $items = null;
+    public ?int $page = null;
+    public ?int $pageSize = null;
+    public ?int $totalResults = null;
 }
 

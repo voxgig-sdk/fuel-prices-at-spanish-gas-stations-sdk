@@ -9,12 +9,15 @@ export interface Dataset {
   description?: string
   distribution?: any[]
   id?: string
+  items?: any[]
   keyword?: any[]
   modified?: string
+  page?: number
+  pageSize?: number
   publisher?: Record<string, any>
-  result?: Record<string, any>
   theme?: any[]
   title?: string
+  totalResults?: number
 }
 
 export interface DatasetLoadMatch {
@@ -22,10 +25,16 @@ export interface DatasetLoadMatch {
 }
 
 export interface Distribution {
-  result?: Record<string, any>
+  items?: any[]
+  page?: number
+  pageSize?: number
+  totalResults?: number
 }
 
 export interface DistributionLoadMatch {
-  result?: Record<string, any>
+  items?: any[]
+  page?: number
+  pageSize?: number
+  totalResults?: number
 }
 

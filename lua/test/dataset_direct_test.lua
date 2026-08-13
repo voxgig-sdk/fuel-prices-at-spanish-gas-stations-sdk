@@ -60,11 +60,11 @@ function dataset_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID"] = {},
-    ["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] = "FALSE",
+    ["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID"] = {},
+    ["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE"
+  local live = env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

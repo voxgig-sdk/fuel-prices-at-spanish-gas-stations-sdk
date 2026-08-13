@@ -26,7 +26,7 @@ class DatasetEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -45,7 +45,7 @@ class DatasetEntityTest < Minitest::Test
       "id" => dataset_ref01_data["id"],
     }
     dataset_ref01_data_dt0_loaded = dataset_ref01_ent.load(dataset_ref01_match_dt0, nil)
-    dataset_ref01_data_dt0_load_result = Helpers.to_map(dataset_ref01_data_dt0_loaded)
+    dataset_ref01_data_dt0_load_result = Helpers.to_map(dataset_ref01_data_dt0_loaded.respond_to?(:data_get) ? dataset_ref01_data_dt0_loaded.data_get : dataset_ref01_data_dt0_loaded)
     assert !dataset_ref01_data_dt0_load_result.nil?
     assert_equal dataset_ref01_data_dt0_load_result["id"], dataset_ref01_data["id"]
 
@@ -78,22 +78,22 @@ def dataset_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID"]
+  entid_env_raw = ENV["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID" => idmap,
-    "FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE" => "FALSE",
-    "FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN" => "FALSE",
+    "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID" => idmap,
+    "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE" => "FALSE",
+    "FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["FUELPRICESATSPANISHGASSTATIONS_TEST_DATASET_ENTID"])
+    env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_DATASET_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE"
+  if env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -102,13 +102,13 @@ def dataset_basic_setup(extra)
     client = FuelPricesAtSpanishGasStationsSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["FUELPRICESATSPANISHGASSTATIONS_TEST_LIVE"] == "TRUE"
+  live = env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["FUELPRICESATSPANISHGASSTATIONS_TEST_EXPLAIN"] == "TRUE",
+    explain: env["FUEL_PRICES_AT_SPANISH_GAS_STATIONS_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

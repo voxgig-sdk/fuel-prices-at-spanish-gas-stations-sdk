@@ -21,6 +21,11 @@ main: kit: entity: dataset: {
       type: "`$STRING`"
     }
     {
+      name: "items"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "keyword"
       req: false
       type: "`$ARRAY`"
@@ -31,12 +36,17 @@ main: kit: entity: dataset: {
       type: "`$STRING`"
     }
     {
-      name: "publisher"
+      name: "page"
       req: false
-      type: "`$OBJECT`"
+      type: "`$INTEGER`"
     }
     {
-      name: "result"
+      name: "pageSize"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "publisher"
       req: false
       type: "`$OBJECT`"
     }
@@ -49,6 +59,11 @@ main: kit: entity: dataset: {
       name: "title"
       req: false
       type: "`$STRING`"
+    }
+    {
+      name: "totalResults"
+      req: false
+      type: "`$INTEGER`"
     }
   ]
 
@@ -122,7 +137,7 @@ main: kit: entity: dataset: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.result`"
           }
         }
         {

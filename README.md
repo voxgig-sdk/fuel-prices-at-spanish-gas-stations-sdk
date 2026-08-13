@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = FuelPricesAtSpanishGasStationsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = FuelPricesAtSpanishGasStationsSDK.test({
+  entity: {
+    dataset: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const dataset = await client.Dataset().load({ id: 'test01' })
-// dataset is a bare Dataset populated with mock data
+// dataset is the Dataset entity, populated with mock data
+// — call dataset.data() for the record itself
 console.log(dataset)
 ```
 
@@ -183,7 +192,7 @@ require_once 'fuelpricesatspanishgasstations_sdk.php';
 $client = new FuelPricesAtSpanishGasStationsSDK();
 
 
-// Load a specific dataset (returns the bare record; throws on error)
+// Load a specific dataset (returns the ENTITY; call data_get() for the record; throws on error)
 $dataset = $client->Dataset()->load(["id" => "example_id"]);
 print_r($dataset);
 ```
@@ -211,7 +220,7 @@ require_relative "FuelPricesAtSpanishGasStations_sdk"
 client = FuelPricesAtSpanishGasStationsSDK.new
 
 
-# Load a specific dataset (returns the bare record; raises on error)
+# Load a specific dataset (returns the ENTITY; call data_get for the record)
 dataset = client.Dataset.load({ "id" => "example_id" })
 puts dataset
 ```
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://datos.gob.es](https://datos.gob.es)
 
