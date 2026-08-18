@@ -21,7 +21,7 @@
 ---@field totalResults? number
 
 ---@class DatasetLoadMatch
----@field id? string
+---@field id string
 
 ---@class Distribution
 ---@field items? table

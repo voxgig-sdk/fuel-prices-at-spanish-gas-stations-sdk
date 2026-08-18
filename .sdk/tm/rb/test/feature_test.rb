@@ -15,7 +15,7 @@ require_relative "../FuelPricesAtSpanishGasStations_sdk"
 module FuelPricesAtSpanishGasStationsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = FuelPricesAtSpanishGasStationsConfig.make_config["feature"]
+    f = FuelPricesAtSpanishGasStationsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-dataset, err := client.Dataset(nil).Load(nil, nil)
+dataset, err := client.Dataset(nil).Load(map[string]any{"id": "example_id"}, nil)
 if err != nil {
     // handle err
     return
@@ -436,7 +436,7 @@ stores the returned data and match criteria internally.
 
 ```go
 dataset := client.Dataset(nil)
-dataset.Load(nil, nil)
+dataset.Load(map[string]any{"id": "example_id"}, nil)
 
 // dataset.Data() now returns the dataset data from the last load
 // dataset.Match() returns the last match criteria

@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  dataset = client.Dataset.load()
+  dataset = client.Dataset.load({ "id" => "example_id" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -413,7 +413,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 dataset = client.Dataset
-dataset.load()
+dataset.load({ "id" => "example_id" })
 
 # dataset.data_get now returns the dataset data from the last load
 # dataset.match_get returns the last match criteria

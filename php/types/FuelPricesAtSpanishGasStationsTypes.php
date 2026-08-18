@@ -32,7 +32,7 @@ class Dataset
 /** Request payload for Dataset#load. */
 class DatasetLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
 }
 
 /** Distribution entity data model. */

@@ -23,6 +23,7 @@ build = {
   modules = {
     ["fuel-prices-at-spanish-gas-stations_sdk"] = "fuel-prices-at-spanish-gas-stations_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

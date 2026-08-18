@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local dataset, err = client:Dataset():load()
+local dataset, err = client:Dataset():load({ id = "example_id" })
 if err then error(err) end
 ```
 
@@ -398,7 +398,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local dataset = client:Dataset()
-dataset:load()
+dataset:load({ id = "example_id" })
 
 -- dataset:data_get() now returns the dataset data from the last load
 -- dataset:match_get() returns the last match criteria

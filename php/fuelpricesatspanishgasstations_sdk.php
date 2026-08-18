@@ -40,7 +40,7 @@ class FuelPricesAtSpanishGasStationsSDK
         $utility = new FuelPricesAtSpanishGasStationsUtility();
         $this->_utility = $utility;
 
-        $config = FuelPricesAtSpanishGasStationsConfig::make_config();
+        $config = FuelPricesAtSpanishGasStationsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

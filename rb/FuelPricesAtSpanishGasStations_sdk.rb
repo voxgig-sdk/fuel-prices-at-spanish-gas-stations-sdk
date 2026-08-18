@@ -28,7 +28,7 @@ class FuelPricesAtSpanishGasStationsSDK
     utility = FuelPricesAtSpanishGasStationsUtility.new
     @_utility = utility
 
-    config = FuelPricesAtSpanishGasStationsConfig.make_config
+    config = FuelPricesAtSpanishGasStationsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

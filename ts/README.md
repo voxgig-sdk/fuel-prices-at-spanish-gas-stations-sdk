@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const dataset = await client.Dataset().load()
+  const dataset = await client.Dataset().load({ id: "example_id" })
   console.log(dataset)
 } catch (err) {
   console.error('load failed:', err)
@@ -451,7 +451,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const dataset = client.Dataset()
-await dataset.load()
+await dataset.load({ id: "example_id" })
 
 // dataset.data() now returns the dataset data from the last `load`
 // dataset.match() returns { id: "example_id" }

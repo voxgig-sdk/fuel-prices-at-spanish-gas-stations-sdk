@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    dataset = client.Dataset().load()
+    dataset = client.Dataset().load({"id": "example_id"})
     print(dataset)
 except Exception as err:
     print(f"load failed: {err}")
@@ -413,7 +413,7 @@ stores the returned data and match criteria internally.
 
 ```python
 dataset = client.Dataset()
-dataset.load()
+dataset.load({"id": "example_id"})
 
 # dataset.data_get() now returns the dataset data from the last load
 # dataset.match_get() returns the last match criteria

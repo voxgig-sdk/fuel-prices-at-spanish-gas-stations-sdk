@@ -31,7 +31,7 @@ class Dataset(TypedDict, total=False):
     totalResults: int
 
 
-class DatasetLoadMatch(TypedDict, total=False):
+class DatasetLoadMatch(TypedDict):
     id: str
 
 

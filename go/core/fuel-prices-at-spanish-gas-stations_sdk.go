@@ -23,7 +23,7 @@ func NewFuelPricesAtSpanishGasStationsSDK(options map[string]any) *FuelPricesAtS
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

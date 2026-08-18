@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new FuelPricesAtSpanishGasStationsSDK()
-const dataset = await client.Dataset().load()
+const dataset = await client.Dataset().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —

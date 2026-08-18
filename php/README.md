@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $dataset = $client->Dataset()->load();
+    $dataset = $client->Dataset()->load(["id" => "example_id"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -423,7 +423,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $dataset = $client->Dataset();
-$dataset->load();
+$dataset->load(["id" => "example_id"]);
 
 // $dataset->data_get() now returns the dataset data from the last load
 // $dataset->match_get() returns the last match criteria
