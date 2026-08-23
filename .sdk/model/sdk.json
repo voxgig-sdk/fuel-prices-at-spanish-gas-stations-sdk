@@ -36,6 +36,7 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Dataset description",
               "type": "`$STRING`"
             },
             {
@@ -48,6 +49,7 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Dataset identifier",
               "type": "`$STRING`"
             },
             {
@@ -60,12 +62,14 @@
               "active": true,
               "name": "keyword",
               "req": false,
+              "short": "Dataset keywords",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "modified",
               "req": false,
+              "short": "Last modification date",
               "type": "`$STRING`"
             },
             {
@@ -90,12 +94,14 @@
               "active": true,
               "name": "theme",
               "req": false,
+              "short": "Dataset themes/categories",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Dataset title",
               "type": "`$STRING`"
             },
             {

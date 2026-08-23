@@ -8,6 +8,7 @@ main: kit: entity: dataset: {
     {
       name: "description"
       req: false
+      short: "Dataset description"
       type: "`$STRING`"
     }
     {
@@ -18,6 +19,7 @@ main: kit: entity: dataset: {
     {
       name: "id"
       req: false
+      short: "Dataset identifier"
       type: "`$STRING`"
     }
     {
@@ -28,11 +30,13 @@ main: kit: entity: dataset: {
     {
       name: "keyword"
       req: false
+      short: "Dataset keywords"
       type: "`$ARRAY`"
     }
     {
       name: "modified"
       req: false
+      short: "Last modification date"
       type: "`$STRING`"
     }
     {
@@ -53,11 +57,13 @@ main: kit: entity: dataset: {
     {
       name: "theme"
       req: false
+      short: "Dataset themes/categories"
       type: "`$ARRAY`"
     }
     {
       name: "title"
       req: false
+      short: "Dataset title"
       type: "`$STRING`"
     }
     {

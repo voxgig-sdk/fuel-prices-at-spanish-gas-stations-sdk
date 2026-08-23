@@ -97,17 +97,17 @@ dataset = client.Dataset
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
+| `description` | `String` | No | Dataset description |
 | `distribution` | `Array` | No |  |
-| `id` | `String` | No |  |
+| `id` | `String` | No | Dataset identifier |
 | `items` | `Array` | No |  |
-| `keyword` | `Array` | No |  |
-| `modified` | `String` | No |  |
+| `keyword` | `Array` | No | Dataset keywords |
+| `modified` | `String` | No | Last modification date |
 | `page` | `Integer` | No |  |
 | `pageSize` | `Integer` | No |  |
 | `publisher` | `Hash` | No |  |
-| `theme` | `Array` | No |  |
-| `title` | `String` | No |  |
+| `theme` | `Array` | No | Dataset themes/categories |
+| `title` | `String` | No | Dataset title |
 | `totalResults` | `Integer` | No |  |
 
 ### Operations

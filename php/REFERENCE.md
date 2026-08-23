@@ -96,17 +96,17 @@ $dataset = $client->Dataset();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
+| `description` | `string` | No | Dataset description |
 | `distribution` | `array` | No |  |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Dataset identifier |
 | `items` | `array` | No |  |
-| `keyword` | `array` | No |  |
-| `modified` | `string` | No |  |
+| `keyword` | `array` | No | Dataset keywords |
+| `modified` | `string` | No | Last modification date |
 | `page` | `int` | No |  |
 | `pageSize` | `int` | No |  |
 | `publisher` | `array` | No |  |
-| `theme` | `array` | No |  |
-| `title` | `string` | No |  |
+| `theme` | `array` | No | Dataset themes/categories |
+| `title` | `string` | No | Dataset title |
 | `totalResults` | `int` | No |  |
 
 ### Operations

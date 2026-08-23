@@ -19,6 +19,9 @@ module FuelPricesAtSpanishGasStationsConfig
     {
       "main" => {
         "name" => "FuelPricesAtSpanishGasStations",
+        "slug" => "fuel-prices-at-spanish-gas-stations",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,6 +45,7 @@ module FuelPricesAtSpanishGasStationsConfig
           "fields" => [
             {
               "name" => "description",
+              "short" => "Dataset description",
               "type" => "`$STRING`",
             },
             {
@@ -50,6 +54,7 @@ module FuelPricesAtSpanishGasStationsConfig
             },
             {
               "name" => "id",
+              "short" => "Dataset identifier",
               "type" => "`$STRING`",
             },
             {
@@ -58,10 +63,12 @@ module FuelPricesAtSpanishGasStationsConfig
             },
             {
               "name" => "keyword",
+              "short" => "Dataset keywords",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "modified",
+              "short" => "Last modification date",
               "type" => "`$STRING`",
             },
             {
@@ -78,10 +85,12 @@ module FuelPricesAtSpanishGasStationsConfig
             },
             {
               "name" => "theme",
+              "short" => "Dataset themes/categories",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "title",
+              "short" => "Dataset title",
               "type" => "`$STRING`",
             },
             {

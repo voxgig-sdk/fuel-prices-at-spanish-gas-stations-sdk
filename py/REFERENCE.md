@@ -91,17 +91,17 @@ dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
+| `description` | `str` | No | Dataset description |
 | `distribution` | `list` | No |  |
-| `id` | `str` | No |  |
+| `id` | `str` | No | Dataset identifier |
 | `items` | `list` | No |  |
-| `keyword` | `list` | No |  |
-| `modified` | `str` | No |  |
+| `keyword` | `list` | No | Dataset keywords |
+| `modified` | `str` | No | Last modification date |
 | `page` | `int` | No |  |
 | `pageSize` | `int` | No |  |
 | `publisher` | `dict` | No |  |
-| `theme` | `list` | No |  |
-| `title` | `str` | No |  |
+| `theme` | `list` | No | Dataset themes/categories |
+| `title` | `str` | No | Dataset title |
 | `totalResults` | `int` | No |  |
 
 ### Operations

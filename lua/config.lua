@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "FuelPricesAtSpanishGasStations",
+      slug = "fuel-prices-at-spanish-gas-stations",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,6 +33,7 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "description",
+            ["short"] = "Dataset description",
             ["type"] = "`$STRING`",
           },
           {
@@ -38,6 +42,7 @@ local function make_config()
           },
           {
             ["name"] = "id",
+            ["short"] = "Dataset identifier",
             ["type"] = "`$STRING`",
           },
           {
@@ -46,10 +51,12 @@ local function make_config()
           },
           {
             ["name"] = "keyword",
+            ["short"] = "Dataset keywords",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "modified",
+            ["short"] = "Last modification date",
             ["type"] = "`$STRING`",
           },
           {
@@ -66,10 +73,12 @@ local function make_config()
           },
           {
             ["name"] = "theme",
+            ["short"] = "Dataset themes/categories",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "title",
+            ["short"] = "Dataset title",
             ["type"] = "`$STRING`",
           },
           {

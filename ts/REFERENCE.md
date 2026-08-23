@@ -128,17 +128,17 @@ const dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
+| `description` | `string` | No | Dataset description |
 | `distribution` | `any[]` | No |  |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Dataset identifier |
 | `items` | `any[]` | No |  |
-| `keyword` | `any[]` | No |  |
-| `modified` | `string` | No |  |
+| `keyword` | `any[]` | No | Dataset keywords |
+| `modified` | `string` | No | Last modification date |
 | `page` | `number` | No |  |
 | `pageSize` | `number` | No |  |
 | `publisher` | `Record<string, any>` | No |  |
-| `theme` | `any[]` | No |  |
-| `title` | `string` | No |  |
+| `theme` | `any[]` | No | Dataset themes/categories |
+| `title` | `string` | No | Dataset title |
 | `totalResults` | `number` | No |  |
 
 ### Operations

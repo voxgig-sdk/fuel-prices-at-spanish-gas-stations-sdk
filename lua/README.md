@@ -226,17 +226,17 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
+| `description` | Dataset description |
 | `distribution` |  |
-| `id` |  |
+| `id` | Dataset identifier |
 | `items` |  |
-| `keyword` |  |
-| `modified` |  |
+| `keyword` | Dataset keywords |
+| `modified` | Last modification date |
 | `page` |  |
 | `pageSize` |  |
 | `publisher` |  |
-| `theme` |  |
-| `title` |  |
+| `theme` | Dataset themes/categories |
+| `title` | Dataset title |
 | `totalResults` |  |
 
 Operations: Load.
@@ -275,17 +275,17 @@ Create an instance: `local dataset = client:Dataset(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
+| `description` | `string` | Dataset description |
 | `distribution` | `table` |  |
-| `id` | `string` |  |
+| `id` | `string` | Dataset identifier |
 | `items` | `table` |  |
-| `keyword` | `table` |  |
-| `modified` | `string` |  |
+| `keyword` | `table` | Dataset keywords |
+| `modified` | `string` | Last modification date |
 | `page` | `number` |  |
 | `pageSize` | `number` |  |
 | `publisher` | `table` |  |
-| `theme` | `table` |  |
-| `title` | `string` |  |
+| `theme` | `table` | Dataset themes/categories |
+| `title` | `string` | Dataset title |
 | `totalResults` | `number` |  |
 
 #### Example: Load

@@ -242,17 +242,17 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
+| `description` | Dataset description |
 | `distribution` |  |
-| `id` |  |
+| `id` | Dataset identifier |
 | `items` |  |
-| `keyword` |  |
-| `modified` |  |
+| `keyword` | Dataset keywords |
+| `modified` | Last modification date |
 | `page` |  |
 | `pageSize` |  |
 | `publisher` |  |
-| `theme` |  |
-| `title` |  |
+| `theme` | Dataset themes/categories |
+| `title` | Dataset title |
 | `totalResults` |  |
 
 Operations: Load.
@@ -291,17 +291,17 @@ Create an instance: `dataset = client.Dataset()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
+| `description` | `str` | Dataset description |
 | `distribution` | `list` |  |
-| `id` | `str` |  |
+| `id` | `str` | Dataset identifier |
 | `items` | `list` |  |
-| `keyword` | `list` |  |
-| `modified` | `str` |  |
+| `keyword` | `list` | Dataset keywords |
+| `modified` | `str` | Last modification date |
 | `page` | `int` |  |
 | `pageSize` | `int` |  |
 | `publisher` | `dict` |  |
-| `theme` | `list` |  |
-| `title` | `str` |  |
+| `theme` | `list` | Dataset themes/categories |
+| `title` | `str` | Dataset title |
 | `totalResults` | `int` |  |
 
 #### Example: Load

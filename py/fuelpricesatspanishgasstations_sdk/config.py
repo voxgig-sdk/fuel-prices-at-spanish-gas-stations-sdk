@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "FuelPricesAtSpanishGasStations",
+            "slug": "fuel-prices-at-spanish-gas-stations",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,6 +54,7 @@ def make_config():
         "fields": [
           {
             "name": "description",
+            "short": "Dataset description",
             "type": "`$STRING`",
           },
           {
@@ -59,6 +63,7 @@ def make_config():
           },
           {
             "name": "id",
+            "short": "Dataset identifier",
             "type": "`$STRING`",
           },
           {
@@ -67,10 +72,12 @@ def make_config():
           },
           {
             "name": "keyword",
+            "short": "Dataset keywords",
             "type": "`$ARRAY`",
           },
           {
             "name": "modified",
+            "short": "Last modification date",
             "type": "`$STRING`",
           },
           {
@@ -87,10 +94,12 @@ def make_config():
           },
           {
             "name": "theme",
+            "short": "Dataset themes/categories",
             "type": "`$ARRAY`",
           },
           {
             "name": "title",
+            "short": "Dataset title",
             "type": "`$STRING`",
           },
           {

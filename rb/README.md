@@ -239,17 +239,17 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
+| `description` | Dataset description |
 | `distribution` |  |
-| `id` |  |
+| `id` | Dataset identifier |
 | `items` |  |
-| `keyword` |  |
-| `modified` |  |
+| `keyword` | Dataset keywords |
+| `modified` | Last modification date |
 | `page` |  |
 | `pageSize` |  |
 | `publisher` |  |
-| `theme` |  |
-| `title` |  |
+| `theme` | Dataset themes/categories |
+| `title` | Dataset title |
 | `totalResults` |  |
 
 Operations: Load.
@@ -288,17 +288,17 @@ Create an instance: `dataset = client.Dataset`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
+| `description` | `String` | Dataset description |
 | `distribution` | `Array` |  |
-| `id` | `String` |  |
+| `id` | `String` | Dataset identifier |
 | `items` | `Array` |  |
-| `keyword` | `Array` |  |
-| `modified` | `String` |  |
+| `keyword` | `Array` | Dataset keywords |
+| `modified` | `String` | Last modification date |
 | `page` | `Integer` |  |
 | `pageSize` | `Integer` |  |
 | `publisher` | `Hash` |  |
-| `theme` | `Array` |  |
-| `title` | `String` |  |
+| `theme` | `Array` | Dataset themes/categories |
+| `title` | `String` | Dataset title |
 | `totalResults` | `Integer` |  |
 
 #### Example: Load

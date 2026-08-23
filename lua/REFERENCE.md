@@ -94,17 +94,17 @@ local dataset = client:Dataset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
+| `description` | `string` | No | Dataset description |
 | `distribution` | `table` | No |  |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Dataset identifier |
 | `items` | `table` | No |  |
-| `keyword` | `table` | No |  |
-| `modified` | `string` | No |  |
+| `keyword` | `table` | No | Dataset keywords |
+| `modified` | `string` | No | Last modification date |
 | `page` | `number` | No |  |
 | `pageSize` | `number` | No |  |
 | `publisher` | `table` | No |  |
-| `theme` | `table` | No |  |
-| `title` | `string` | No |  |
+| `theme` | `table` | No | Dataset themes/categories |
+| `title` | `string` | No | Dataset title |
 | `totalResults` | `number` | No |  |
 
 ### Operations

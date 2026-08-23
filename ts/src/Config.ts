@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'FuelPricesAtSpanishGasStations',
+        slug: "fuel-prices-at-spanish-gas-stations",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,6 +70,7 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Dataset description",
           "type": "`$STRING`"
         },
         {
@@ -67,6 +79,7 @@ class Config {
         },
         {
           "name": "id",
+          "short": "Dataset identifier",
           "type": "`$STRING`"
         },
         {
@@ -75,10 +88,12 @@ class Config {
         },
         {
           "name": "keyword",
+          "short": "Dataset keywords",
           "type": "`$ARRAY`"
         },
         {
           "name": "modified",
+          "short": "Last modification date",
           "type": "`$STRING`"
         },
         {
@@ -95,10 +110,12 @@ class Config {
         },
         {
           "name": "theme",
+          "short": "Dataset themes/categories",
           "type": "`$ARRAY`"
         },
         {
           "name": "title",
+          "short": "Dataset title",
           "type": "`$STRING`"
         },
         {

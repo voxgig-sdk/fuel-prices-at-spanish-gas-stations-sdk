@@ -33,6 +33,9 @@ class FuelPricesAtSpanishGasStationsConfig
         return [
             "main" => [
                 "name" => "FuelPricesAtSpanishGasStations",
+                "slug" => "fuel-prices-at-spanish-gas-stations",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,6 +59,7 @@ class FuelPricesAtSpanishGasStationsConfig
           'fields' => [
             [
               'name' => 'description',
+              'short' => 'Dataset description',
               'type' => '`$STRING`',
             ],
             [
@@ -64,6 +68,7 @@ class FuelPricesAtSpanishGasStationsConfig
             ],
             [
               'name' => 'id',
+              'short' => 'Dataset identifier',
               'type' => '`$STRING`',
             ],
             [
@@ -72,10 +77,12 @@ class FuelPricesAtSpanishGasStationsConfig
             ],
             [
               'name' => 'keyword',
+              'short' => 'Dataset keywords',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'modified',
+              'short' => 'Last modification date',
               'type' => '`$STRING`',
             ],
             [
@@ -92,10 +99,12 @@ class FuelPricesAtSpanishGasStationsConfig
             ],
             [
               'name' => 'theme',
+              'short' => 'Dataset themes/categories',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'title',
+              'short' => 'Dataset title',
               'type' => '`$STRING`',
             ],
             [

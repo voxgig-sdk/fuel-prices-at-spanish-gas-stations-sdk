@@ -249,17 +249,17 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
+| `description` | Dataset description |
 | `distribution` |  |
-| `id` |  |
+| `id` | Dataset identifier |
 | `items` |  |
-| `keyword` |  |
-| `modified` |  |
+| `keyword` | Dataset keywords |
+| `modified` | Last modification date |
 | `page` |  |
 | `pageSize` |  |
 | `publisher` |  |
-| `theme` |  |
-| `title` |  |
+| `theme` | Dataset themes/categories |
+| `title` | Dataset title |
 | `totalResults` |  |
 
 Operations: Load.
@@ -298,17 +298,17 @@ Create an instance: `$dataset = $client->Dataset();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
+| `description` | `string` | Dataset description |
 | `distribution` | `array` |  |
-| `id` | `string` |  |
+| `id` | `string` | Dataset identifier |
 | `items` | `array` |  |
-| `keyword` | `array` |  |
-| `modified` | `string` |  |
+| `keyword` | `array` | Dataset keywords |
+| `modified` | `string` | Last modification date |
 | `page` | `int` |  |
 | `pageSize` | `int` |  |
 | `publisher` | `array` |  |
-| `theme` | `array` |  |
-| `title` | `string` |  |
+| `theme` | `array` | Dataset themes/categories |
+| `title` | `string` | Dataset title |
 | `totalResults` | `int` |  |
 
 #### Example: Load

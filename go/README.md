@@ -6,7 +6,7 @@ The Golang SDK for the FuelPricesAtSpanishGasStations API — an entity-oriented
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Dataset(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -259,17 +259,17 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
+| `"description"` | Dataset description |
 | `"distribution"` |  |
-| `"id"` |  |
+| `"id"` | Dataset identifier |
 | `"items"` |  |
-| `"keyword"` |  |
-| `"modified"` |  |
+| `"keyword"` | Dataset keywords |
+| `"modified"` | Last modification date |
 | `"page"` |  |
 | `"pageSize"` |  |
 | `"publisher"` |  |
-| `"theme"` |  |
-| `"title"` |  |
+| `"theme"` | Dataset themes/categories |
+| `"title"` | Dataset title |
 | `"totalResults"` |  |
 
 Operations: Load.
@@ -308,17 +308,17 @@ Create an instance: `dataset := client.Dataset(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
+| `description` | `string` | Dataset description |
 | `distribution` | `[]any` |  |
-| `id` | `string` |  |
+| `id` | `string` | Dataset identifier |
 | `items` | `[]any` |  |
-| `keyword` | `[]any` |  |
-| `modified` | `string` |  |
+| `keyword` | `[]any` | Dataset keywords |
+| `modified` | `string` | Last modification date |
 | `page` | `int` |  |
 | `pageSize` | `int` |  |
 | `publisher` | `map[string]any` |  |
-| `theme` | `[]any` |  |
-| `title` | `string` |  |
+| `theme` | `[]any` | Dataset themes/categories |
+| `title` | `string` | Dataset title |
 | `totalResults` | `int` |  |
 
 #### Example: Load
