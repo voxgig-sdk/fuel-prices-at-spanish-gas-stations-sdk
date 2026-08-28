@@ -32,9 +32,9 @@ export interface Distribution {
 }
 
 export interface DistributionLoadMatch {
-  items?: any[]
+  format?: string
   page?: number
-  pageSize?: number
-  totalResults?: number
+  page_size?: number
+  sort?: string
 }
 

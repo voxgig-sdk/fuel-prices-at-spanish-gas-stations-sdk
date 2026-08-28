@@ -30,10 +30,10 @@
 ---@field totalResults? number
 
 ---@class DistributionLoadMatch
----@field items? table
+---@field format? string
 ---@field page? number
----@field pageSize? number
----@field totalResults? number
+---@field page_size? number
+---@field sort? string
 
 local M = {}
 

@@ -43,7 +43,7 @@ class Distribution(TypedDict, total=False):
 
 
 class DistributionLoadMatch(TypedDict, total=False):
-    items: list
+    format: str
     page: int
-    pageSize: int
-    totalResults: int
+    page_size: int
+    sort: str

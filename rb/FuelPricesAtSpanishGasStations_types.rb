@@ -93,22 +93,22 @@ Distribution = Struct.new(
 
 # Request payload for Distribution#load.
 #
-# @!attribute [rw] items
-#   @return [Array, nil]
+# @!attribute [rw] format
+#   @return [String, nil]
 #
 # @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] pageSize
+# @!attribute [rw] page_size
 #   @return [Integer, nil]
 #
-# @!attribute [rw] totalResults
-#   @return [Integer, nil]
+# @!attribute [rw] sort
+#   @return [String, nil]
 DistributionLoadMatch = Struct.new(
-  :items,
+  :format,
   :page,
-  :pageSize,
-  :totalResults,
+  :page_size,
+  :sort,
   keyword_init: true
 )
 

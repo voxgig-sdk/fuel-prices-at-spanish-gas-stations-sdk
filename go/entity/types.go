@@ -43,10 +43,10 @@ type Distribution struct {
 
 // DistributionLoadMatch is the typed request payload for Distribution.LoadTyped.
 type DistributionLoadMatch struct {
-	Items *[]any `json:"items,omitempty"`
+	Format *string `json:"format,omitempty"`
 	Page *int `json:"page,omitempty"`
-	PageSize *int `json:"pageSize,omitempty"`
-	TotalResults *int `json:"totalResults,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

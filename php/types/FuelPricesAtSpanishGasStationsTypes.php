@@ -47,9 +47,9 @@ class Distribution
 /** Request payload for Distribution#load. */
 class DistributionLoadMatch
 {
-    public ?array $items = null;
+    public ?string $format = null;
     public ?int $page = null;
-    public ?int $pageSize = null;
-    public ?int $totalResults = null;
+    public ?int $page_size = null;
+    public ?string $sort = null;
 }
 
