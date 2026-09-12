@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -93,6 +104,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "date-time",
           "name": "modified",
           "short": "Last modification date",
           "type": "`$STRING`"
@@ -124,6 +136,10 @@ class Config {
           "type": "`$INTEGER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "dataset",
       "op": {
         "load": {
@@ -171,9 +187,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/catalog/dataset",
-              "parts": [
-                "catalog",
-                "dataset"
+              "segments": [
+                {
+                  "lit": "catalog"
+                },
+                {
+                  "lit": "dataset"
+                }
               ],
               "select": {
                 "exist": [
@@ -187,7 +207,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.result`"
-              }
+              },
+              "parts": [
+                "catalog",
+                "dataset"
+              ]
             },
             {
               "args": {
@@ -204,10 +228,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/catalog/dataset/{id}",
-              "parts": [
-                "catalog",
-                "dataset",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "catalog"
+                },
+                {
+                  "lit": "dataset"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -217,7 +247,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "catalog",
+                "dataset",
+                "{id}"
+              ]
             }
           ]
         }
@@ -286,9 +321,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/catalog/distribution",
-              "parts": [
-                "catalog",
-                "distribution"
+              "segments": [
+                {
+                  "lit": "catalog"
+                },
+                {
+                  "lit": "distribution"
+                }
               ],
               "select": {
                 "exist": [
@@ -301,7 +340,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.result`"
-              }
+              },
+              "parts": [
+                "catalog",
+                "distribution"
+              ]
             }
           ]
         }
@@ -317,6 +360,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

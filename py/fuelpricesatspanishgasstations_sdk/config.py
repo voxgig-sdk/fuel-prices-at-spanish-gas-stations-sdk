@@ -1,6 +1,14 @@
 # FuelPricesAtSpanishGasStations SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -77,6 +85,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "date-time",
             "name": "modified",
             "short": "Last modification date",
             "type": "`$STRING`",
@@ -108,6 +117,10 @@ def make_config():
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "dataset",
         "op": {
           "load": {
@@ -155,9 +168,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/catalog/dataset",
-                "parts": [
-                  "catalog",
-                  "dataset",
+                "segments": [
+                  {
+                    "lit": "catalog",
+                  },
+                  {
+                    "lit": "dataset",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -172,6 +189,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.result`",
                 },
+                "parts": [
+                  "catalog",
+                  "dataset",
+                ],
               },
               {
                 "args": {
@@ -188,10 +209,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/catalog/dataset/{id}",
-                "parts": [
-                  "catalog",
-                  "dataset",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "catalog",
+                  },
+                  {
+                    "lit": "dataset",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -202,6 +229,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "catalog",
+                  "dataset",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -270,9 +302,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/catalog/distribution",
-                "parts": [
-                  "catalog",
-                  "distribution",
+                "segments": [
+                  {
+                    "lit": "catalog",
+                  },
+                  {
+                    "lit": "distribution",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -286,6 +322,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.result`",
                 },
+                "parts": [
+                  "catalog",
+                  "distribution",
+                ],
               },
             ],
           },

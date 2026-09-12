@@ -68,6 +68,7 @@ module FuelPricesAtSpanishGasStationsConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "date-time",
               "name" => "modified",
               "short" => "Last modification date",
               "type" => "`$STRING`",
@@ -99,6 +100,10 @@ module FuelPricesAtSpanishGasStationsConfig
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "dataset",
           "op" => {
             "load" => {
@@ -146,9 +151,13 @@ module FuelPricesAtSpanishGasStationsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalog/dataset",
-                  "parts" => [
-                    "catalog",
-                    "dataset",
+                  "segments" => [
+                    {
+                      "lit" => "catalog",
+                    },
+                    {
+                      "lit" => "dataset",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -163,6 +172,10 @@ module FuelPricesAtSpanishGasStationsConfig
                     "req" => "`reqdata`",
                     "res" => "`body.result`",
                   },
+                  "parts" => [
+                    "catalog",
+                    "dataset",
+                  ],
                 },
                 {
                   "args" => {
@@ -179,10 +192,16 @@ module FuelPricesAtSpanishGasStationsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalog/dataset/{id}",
-                  "parts" => [
-                    "catalog",
-                    "dataset",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "catalog",
+                    },
+                    {
+                      "lit" => "dataset",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -193,6 +212,11 @@ module FuelPricesAtSpanishGasStationsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "catalog",
+                    "dataset",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -261,9 +285,13 @@ module FuelPricesAtSpanishGasStationsConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalog/distribution",
-                  "parts" => [
-                    "catalog",
-                    "distribution",
+                  "segments" => [
+                    {
+                      "lit" => "catalog",
+                    },
+                    {
+                      "lit" => "distribution",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -277,6 +305,10 @@ module FuelPricesAtSpanishGasStationsConfig
                     "req" => "`reqdata`",
                     "res" => "`body.result`",
                   },
+                  "parts" => [
+                    "catalog",
+                    "distribution",
+                  ],
                 },
               ],
             },

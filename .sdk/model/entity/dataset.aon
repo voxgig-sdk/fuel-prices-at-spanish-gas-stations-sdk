@@ -34,6 +34,7 @@ main: kit: entity: dataset: {
       type: "`$ARRAY`"
     }
     {
+      format: "date-time"
       name: "modified"
       req: false
       short: "Last modification date"
@@ -128,9 +129,13 @@ main: kit: entity: dataset: {
           }
           method: "GET"
           orig: "/catalog/dataset"
-          parts: [
-            "catalog"
-            "dataset"
+          segments: [
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "dataset"
+            }
           ]
           select: {
             exist: [
@@ -160,10 +165,16 @@ main: kit: entity: dataset: {
           }
           method: "GET"
           orig: "/catalog/dataset/{id}"
-          parts: [
-            "catalog"
-            "dataset"
-            "{id}"
+          segments: [
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "dataset"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

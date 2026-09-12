@@ -82,6 +82,7 @@ class FuelPricesAtSpanishGasStationsConfig
               'type' => '`$ARRAY`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'modified',
               'short' => 'Last modification date',
               'type' => '`$STRING`',
@@ -112,6 +113,10 @@ class FuelPricesAtSpanishGasStationsConfig
               'name' => 'totalResults',
               'type' => '`$INTEGER`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'dataset',
           'op' => [
@@ -160,9 +165,13 @@ class FuelPricesAtSpanishGasStationsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/catalog/dataset',
-                  'parts' => [
-                    'catalog',
-                    'dataset',
+                  'segments' => [
+                    [
+                      'lit' => 'catalog',
+                    ],
+                    [
+                      'lit' => 'dataset',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -176,6 +185,10 @@ class FuelPricesAtSpanishGasStationsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.result`',
+                  ],
+                  'parts' => [
+                    'catalog',
+                    'dataset',
                   ],
                 ],
                 [
@@ -193,10 +206,16 @@ class FuelPricesAtSpanishGasStationsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/catalog/dataset/{id}',
-                  'parts' => [
-                    'catalog',
-                    'dataset',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'catalog',
+                    ],
+                    [
+                      'lit' => 'dataset',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -206,6 +225,11 @@ class FuelPricesAtSpanishGasStationsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'catalog',
+                    'dataset',
+                    '{id}',
                   ],
                 ],
               ],
@@ -275,9 +299,13 @@ class FuelPricesAtSpanishGasStationsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/catalog/distribution',
-                  'parts' => [
-                    'catalog',
-                    'distribution',
+                  'segments' => [
+                    [
+                      'lit' => 'catalog',
+                    ],
+                    [
+                      'lit' => 'distribution',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -290,6 +318,10 @@ class FuelPricesAtSpanishGasStationsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.result`',
+                  ],
+                  'parts' => [
+                    'catalog',
+                    'distribution',
                   ],
                 ],
               ],

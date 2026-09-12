@@ -56,6 +56,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "modified",
             ["short"] = "Last modification date",
             ["type"] = "`$STRING`",
@@ -86,6 +87,10 @@ local function make_config()
             ["name"] = "totalResults",
             ["type"] = "`$INTEGER`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "dataset",
         ["op"] = {
@@ -134,9 +139,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/catalog/dataset",
-                ["parts"] = {
-                  "catalog",
-                  "dataset",
+                ["segments"] = {
+                  {
+                    ["lit"] = "catalog",
+                  },
+                  {
+                    ["lit"] = "dataset",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -150,6 +159,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.result`",
+                },
+                ["parts"] = {
+                  "catalog",
+                  "dataset",
                 },
               },
               {
@@ -167,10 +180,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/catalog/dataset/{id}",
-                ["parts"] = {
-                  "catalog",
-                  "dataset",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "catalog",
+                  },
+                  {
+                    ["lit"] = "dataset",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -180,6 +199,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "catalog",
+                  "dataset",
+                  "{id}",
                 },
               },
             },
@@ -249,9 +273,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/catalog/distribution",
-                ["parts"] = {
-                  "catalog",
-                  "distribution",
+                ["segments"] = {
+                  {
+                    ["lit"] = "catalog",
+                  },
+                  {
+                    ["lit"] = "distribution",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -264,6 +292,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.result`",
+                },
+                ["parts"] = {
+                  "catalog",
+                  "distribution",
                 },
               },
             },

@@ -70,9 +70,13 @@ main: kit: entity: distribution: {
           }
           method: "GET"
           orig: "/catalog/distribution"
-          parts: [
-            "catalog"
-            "distribution"
+          segments: [
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "distribution"
+            }
           ]
           select: {
             exist: [
