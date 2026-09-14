@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/fuel-prices-at-spanish-gas-stations",
+  "name": "@voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Fuel Prices at Spanish Gas Stations public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

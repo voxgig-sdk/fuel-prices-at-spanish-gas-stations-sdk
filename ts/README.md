@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FuelPricesAtSpanishGasStationsSDK } from '@voxgig-sdk/fuel-prices-at-spanish-gas-stations'
+import { FuelPricesAtSpanishGasStationsSDK } from '@voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk'
 
 const client = new FuelPricesAtSpanishGasStationsSDK()
 ```
@@ -463,7 +463,7 @@ fuel-prices-at-spanish-gas-stations/
 Import the SDK from the package root:
 
 ```ts
-import { FuelPricesAtSpanishGasStationsSDK } from '@voxgig-sdk/fuel-prices-at-spanish-gas-stations'
+import { FuelPricesAtSpanishGasStationsSDK } from '@voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk'
 ```
 
 ### Entity state

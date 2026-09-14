@@ -105,7 +105,7 @@ local result, err = client:Dataset():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
 | Python | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
 | PHP | `voxgig-sdk/fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go` | `go get github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Dataset():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { FuelPricesAtSpanishGasStationsSDK } from '@voxgig-sdk/fuel-prices-at-spanish-gas-stations'
+import { FuelPricesAtSpanishGasStationsSDK } from '@voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk'
 
 const client = new FuelPricesAtSpanishGasStationsSDK()
 
