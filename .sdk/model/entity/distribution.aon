@@ -68,6 +68,12 @@ main: kit: entity: distribution: {
               }
             ]
           }
+          contract: {
+            id: "GET /catalog/distribution"
+            json: "{\"operationId\":\"listDistributions\",\"parameters\":[{\"description\":\"Sort field\",\"in\":\"query\",\"name\":\"_sort\",\"schema\":{\"default\":\"title\",\"type\":\"string\"}},{\"description\":\"Number of results per page\",\"in\":\"query\",\"name\":\"_pageSize\",\"schema\":{\"default\":10,\"type\":\"integer\"}},{\"description\":\"Page number (0-indexed)\",\"in\":\"query\",\"name\":\"_page\",\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Filter by distribution format (e.g., CSV, JSON, XML)\",\"in\":\"query\",\"name\":\"format\",\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"result\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"accessURL\":{\"description\":\"URL to access the distribution\",\"format\":\"uri\",\"type\":\"string\"},\"byteSize\":{\"description\":\"Size in bytes\",\"type\":\"integer\"},\"downloadURL\":{\"description\":\"Direct download URL\",\"format\":\"uri\",\"type\":\"string\"},\"format\":{\"description\":\"File format (CSV, JSON, XML, etc.)\",\"type\":\"string\"},\"id\":{\"description\":\"Distribution identifier\",\"type\":\"string\"},\"mediaType\":{\"description\":\"MIME type\",\"type\":\"string\"},\"title\":{\"description\":\"Distribution title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"page\":{\"type\":\"integer\"},\"pageSize\":{\"type\":\"integer\"},\"totalResults\":{\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Distribution listing\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/catalog/distribution"
           segments: [

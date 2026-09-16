@@ -1,12 +1,18 @@
 # FuelPricesAtSpanishGasStations SDK feature factory
 
 from fuelpricesatspanishgasstations_sdk.feature.base_feature import FuelPricesAtSpanishGasStationsBaseFeature
+from fuelpricesatspanishgasstations_sdk.feature.ratelimit_feature import FuelPricesAtSpanishGasStationsRatelimitFeature
+from fuelpricesatspanishgasstations_sdk.feature.retry_feature import FuelPricesAtSpanishGasStationsRetryFeature
 from fuelpricesatspanishgasstations_sdk.feature.test_feature import FuelPricesAtSpanishGasStationsTestFeature
+from fuelpricesatspanishgasstations_sdk.feature.timeout_feature import FuelPricesAtSpanishGasStationsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FuelPricesAtSpanishGasStationsBaseFeature(),
+    "ratelimit": lambda: FuelPricesAtSpanishGasStationsRatelimitFeature(),
+    "retry": lambda: FuelPricesAtSpanishGasStationsRetryFeature(),
     "test": lambda: FuelPricesAtSpanishGasStationsTestFeature(),
+    "timeout": lambda: FuelPricesAtSpanishGasStationsTimeoutFeature(),
 }
 
 

@@ -3,23 +3,23 @@
     "distribution": {
       "DISTRIBUTION00": {
         "items": [],
-        "page": "s29",
-        "pageSize": "s2a",
-        "totalResults": "s2b",
+        "page": 41,
+        "pageSize": 42,
+        "totalResults": 43,
         "id": "DISTRIBUTION00"
       },
       "DISTRIBUTION01": {
         "items": [],
-        "page": "s51",
-        "pageSize": "s52",
-        "totalResults": "s53",
+        "page": 81,
+        "pageSize": 82,
+        "totalResults": 83,
         "id": "DISTRIBUTION01"
       },
       "DISTRIBUTION02": {
         "items": [],
-        "page": "s79",
-        "pageSize": "s7a",
-        "totalResults": "s7b",
+        "page": 121,
+        "pageSize": 122,
+        "totalResults": 123,
         "id": "DISTRIBUTION02"
       }
     }
@@ -28,9 +28,122 @@
     "distribution": {
       "distribution_ref01": {
         "items": [],
-        "page": "sa1",
-        "pageSize": "sa2",
-        "totalResults": "sa3"
+        "page": 161,
+        "pageSize": 162,
+        "totalResults": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /catalog/distribution": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "listDistributions",
+        "parameters": [
+          {
+            "description": "Sort field",
+            "in": "query",
+            "name": "_sort",
+            "schema": {
+              "default": "title",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results per page",
+            "in": "query",
+            "name": "_pageSize",
+            "schema": {
+              "default": 10,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number (0-indexed)",
+            "in": "query",
+            "name": "_page",
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter by distribution format (e.g., CSV, JSON, XML)",
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "result": {
+                      "properties": {
+                        "items": {
+                          "items": {
+                            "properties": {
+                              "accessURL": {
+                                "description": "URL to access the distribution",
+                                "format": "uri",
+                                "type": "string"
+                              },
+                              "byteSize": {
+                                "description": "Size in bytes",
+                                "type": "integer"
+                              },
+                              "downloadURL": {
+                                "description": "Direct download URL",
+                                "format": "uri",
+                                "type": "string"
+                              },
+                              "format": {
+                                "description": "File format (CSV, JSON, XML, etc.)",
+                                "type": "string"
+                              },
+                              "id": {
+                                "description": "Distribution identifier",
+                                "type": "string"
+                              },
+                              "mediaType": {
+                                "description": "MIME type",
+                                "type": "string"
+                              },
+                              "title": {
+                                "description": "Distribution title",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "page": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "totalResults": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Distribution listing"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

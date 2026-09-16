@@ -8,12 +8,12 @@
         "items": [],
         "keyword": [],
         "modified": "s7d",
-        "page": "s7e",
-        "pageSize": "s7f",
+        "page": 126,
+        "pageSize": 127,
         "publisher": {},
         "theme": [],
         "title": "s82",
-        "totalResults": "s83"
+        "totalResults": 131
       },
       "DATASET01": {
         "description": "sf0",
@@ -22,12 +22,12 @@
         "items": [],
         "keyword": [],
         "modified": "sf5",
-        "page": "sf6",
-        "pageSize": "sf7",
+        "page": 246,
+        "pageSize": 247,
         "publisher": {},
         "theme": [],
         "title": "sfa",
-        "totalResults": "sfb"
+        "totalResults": 251
       },
       "DATASET02": {
         "description": "s168",
@@ -36,12 +36,12 @@
         "items": [],
         "keyword": [],
         "modified": "s16d",
-        "page": "s16e",
-        "pageSize": "s16f",
+        "page": 366,
+        "pageSize": 367,
         "publisher": {},
         "theme": [],
         "title": "s172",
-        "totalResults": "s173"
+        "totalResults": 371
       }
     }
   },
@@ -53,12 +53,299 @@
         "items": [],
         "keyword": [],
         "modified": "s1e5",
-        "page": "s1e6",
-        "pageSize": "s1e7",
+        "page": 486,
+        "pageSize": 487,
         "publisher": {},
         "theme": [],
         "title": "s1ea",
-        "totalResults": "s1eb"
+        "totalResults": 491
+      }
+    }
+  },
+  "requests": {
+    "GET /catalog/dataset": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "listDatasets",
+        "parameters": [
+          {
+            "description": "Sort field (e.g., title, modified)",
+            "in": "query",
+            "name": "_sort",
+            "schema": {
+              "default": "title",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results per page",
+            "in": "query",
+            "name": "_pageSize",
+            "schema": {
+              "default": 10,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number (0-indexed)",
+            "in": "query",
+            "name": "_page",
+            "schema": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter by theme (e.g., energia for energy/fuel datasets)",
+            "in": "query",
+            "name": "theme",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by keyword",
+            "in": "query",
+            "name": "keyword",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "result": {
+                      "properties": {
+                        "items": {
+                          "items": {
+                            "properties": {
+                              "description": {
+                                "description": "Dataset description",
+                                "type": "string"
+                              },
+                              "distribution": {
+                                "items": {
+                                  "properties": {
+                                    "accessURL": {
+                                      "description": "URL to access the distribution",
+                                      "format": "uri",
+                                      "type": "string"
+                                    },
+                                    "byteSize": {
+                                      "description": "Size in bytes",
+                                      "type": "integer"
+                                    },
+                                    "downloadURL": {
+                                      "description": "Direct download URL",
+                                      "format": "uri",
+                                      "type": "string"
+                                    },
+                                    "format": {
+                                      "description": "File format (CSV, JSON, XML, etc.)",
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "description": "Distribution identifier",
+                                      "type": "string"
+                                    },
+                                    "mediaType": {
+                                      "description": "MIME type",
+                                      "type": "string"
+                                    },
+                                    "title": {
+                                      "description": "Distribution title",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "id": {
+                                "description": "Dataset identifier",
+                                "type": "string"
+                              },
+                              "keyword": {
+                                "description": "Dataset keywords",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "modified": {
+                                "description": "Last modification date",
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "publisher": {
+                                "properties": {
+                                  "mbox": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "theme": {
+                                "description": "Dataset themes/categories",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "title": {
+                                "description": "Dataset title",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "page": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "totalResults": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Dataset listing"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /catalog/dataset/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getDataset",
+        "parameters": [
+          {
+            "description": "The dataset identifier",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "description": {
+                      "description": "Dataset description",
+                      "type": "string"
+                    },
+                    "distribution": {
+                      "items": {
+                        "properties": {
+                          "accessURL": {
+                            "description": "URL to access the distribution",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          "byteSize": {
+                            "description": "Size in bytes",
+                            "type": "integer"
+                          },
+                          "downloadURL": {
+                            "description": "Direct download URL",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          "format": {
+                            "description": "File format (CSV, JSON, XML, etc.)",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Distribution identifier",
+                            "type": "string"
+                          },
+                          "mediaType": {
+                            "description": "MIME type",
+                            "type": "string"
+                          },
+                          "title": {
+                            "description": "Distribution title",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "id": {
+                      "description": "Dataset identifier",
+                      "type": "string"
+                    },
+                    "keyword": {
+                      "description": "Dataset keywords",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "modified": {
+                      "description": "Last modification date",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "publisher": {
+                      "properties": {
+                        "mbox": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "theme": {
+                      "description": "Dataset themes/categories",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "title": {
+                      "description": "Dataset title",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Dataset details"
+          },
+          "404": {
+            "description": "Dataset not found"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }
