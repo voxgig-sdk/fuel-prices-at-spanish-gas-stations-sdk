@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      dataset: {
-      },
-
-      distribution: {
-      },
-
+        dataset: {
+        },
+  
+        distribution: {
+        },
+  
     }
   }
 

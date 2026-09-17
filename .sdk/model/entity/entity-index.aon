@@ -1,4 +1,4 @@
 # Entity Models
 
-@"dataset.aon"
-@"distribution.aon"
+@"./dataset.aon"
+@"./distribution.aon"

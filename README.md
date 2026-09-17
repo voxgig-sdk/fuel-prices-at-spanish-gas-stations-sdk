@@ -105,12 +105,12 @@ local result, err = client:Dataset():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
-| Python | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
-| PHP | `voxgig-sdk/fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/tags) |
+| Python | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/tags) |
+| PHP | `voxgig-sdk/fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go` | `go get github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go@latest` |
-| Ruby | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
-| Lua | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/releases) |
+| Ruby | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/tags) |
+| Lua | `voxgig-sdk-fuel-prices-at-spanish-gas-stations` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go-cli` | `go install github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go-cli/cmd/fuel-prices-at-spanish-gas-stations@latest` |
 | Go MCP server | `github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go-mcp` | `go get github.com/voxgig-sdk/fuel-prices-at-spanish-gas-stations-sdk/go-mcp@latest` |
 
