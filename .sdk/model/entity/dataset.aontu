@@ -1,0 +1,217 @@
+# Entity: dataset
+
+main: kit: entity: dataset: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Dataset description"
+      t: "`$STRING`"
+    }
+    distribution: {
+      h: "Distribution"
+      n: "distribution"
+      r: false
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Dataset identifier"
+      t: "`$STRING`"
+    }
+    items: {
+      h: "Items"
+      n: "items"
+      r: false
+      t: "`$ARRAY`"
+    }
+    keyword: {
+      h: "Keyword"
+      n: "keyword"
+      r: false
+      sh: "Dataset keywords"
+      t: "`$ARRAY`"
+    }
+    modified: {
+      fo: "date-time"
+      h: "Modified"
+      n: "modified"
+      r: false
+      sh: "Last modification date"
+      t: "`$STRING`"
+    }
+    page: {
+      h: "Page"
+      n: "page"
+      r: false
+      t: "`$INTEGER`"
+    }
+    pageSize: {
+      h: "Page Size"
+      n: "pageSize"
+      r: false
+      t: "`$INTEGER`"
+    }
+    publisher: {
+      h: "Publisher"
+      n: "publisher"
+      r: false
+      t: "`$OBJECT`"
+    }
+    theme: {
+      h: "Theme"
+      n: "theme"
+      r: false
+      sh: "Dataset themes/categories"
+      t: "`$ARRAY`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Dataset title"
+      t: "`$STRING`"
+    }
+    totalResults: {
+      h: "Total Results"
+      n: "totalResults"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "dataset"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /catalog/dataset"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "keyword"
+                or: "keyword"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "title"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "theme"
+                or: "theme"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/catalog/dataset"
+          q: {
+            exist: [
+              "keyword"
+              "page"
+              "page_size"
+              "sort"
+              "theme"
+            ]
+          }
+          s: [
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "dataset"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+        {
+          co: {
+            id: "GET /catalog/dataset/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/catalog/dataset/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "dataset"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

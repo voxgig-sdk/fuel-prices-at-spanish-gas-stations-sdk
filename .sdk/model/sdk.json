@@ -24,93 +24,171 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "dataset": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "description",
-              "req": false,
-              "short": "Dataset description",
-              "type": "`$STRING`"
+          "fields": {
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "Dataset description",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "distribution",
-              "req": false,
-              "type": "`$ARRAY`"
+            "distribution": {
+              "a": true,
+              "h": "Distribution",
+              "n": "distribution",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Dataset identifier",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Dataset identifier",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "items",
-              "req": false,
-              "type": "`$ARRAY`"
+            "items": {
+              "a": true,
+              "h": "Items",
+              "n": "items",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "keyword",
-              "req": false,
-              "short": "Dataset keywords",
-              "type": "`$ARRAY`"
+            "keyword": {
+              "a": true,
+              "h": "Keyword",
+              "n": "keyword",
+              "r": false,
+              "sh": "Dataset keywords",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "modified",
-              "req": false,
-              "short": "Last modification date",
-              "type": "`$STRING`"
+            "modified": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Modified",
+              "n": "modified",
+              "r": false,
+              "sh": "Last modification date",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "page",
-              "req": false,
-              "type": "`$INTEGER`"
+            "page": {
+              "a": true,
+              "h": "Page",
+              "n": "page",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "pageSize",
-              "req": false,
-              "type": "`$INTEGER`"
+            "pageSize": {
+              "a": true,
+              "h": "Page Size",
+              "n": "pageSize",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "publisher",
-              "req": false,
-              "type": "`$OBJECT`"
+            "publisher": {
+              "a": true,
+              "h": "Publisher",
+              "n": "publisher",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "theme",
-              "req": false,
-              "short": "Dataset themes/categories",
-              "type": "`$ARRAY`"
+            "theme": {
+              "a": true,
+              "h": "Theme",
+              "n": "theme",
+              "r": false,
+              "sh": "Dataset themes/categories",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Dataset title",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Dataset title",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "totalResults",
-              "req": false,
-              "type": "`$INTEGER`"
+            "totalResults": {
+              "a": true,
+              "h": "Total Results",
+              "n": "totalResults",
+              "r": false,
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -122,72 +200,63 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /catalog/dataset",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "keyword",
-                        "orig": "keyword",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "keyword",
+                        "or": "keyword",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "page_size",
-                        "orig": "page_size",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "page_size",
+                        "or": "page_size",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "title",
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "title",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "theme",
-                        "orig": "theme",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "theme",
+                        "or": "theme",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /catalog/dataset",
-                    "json": "{\"operationId\":\"listDatasets\",\"parameters\":[{\"description\":\"Sort field (e.g., title, modified)\",\"in\":\"query\",\"name\":\"_sort\",\"schema\":{\"default\":\"title\",\"type\":\"string\"}},{\"description\":\"Number of results per page\",\"in\":\"query\",\"name\":\"_pageSize\",\"schema\":{\"default\":10,\"type\":\"integer\"}},{\"description\":\"Page number (0-indexed)\",\"in\":\"query\",\"name\":\"_page\",\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Filter by theme (e.g., energia for energy/fuel datasets)\",\"in\":\"query\",\"name\":\"theme\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by keyword\",\"in\":\"query\",\"name\":\"keyword\",\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"result\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Dataset description\",\"type\":\"string\"},\"distribution\":{\"items\":{\"properties\":{\"accessURL\":{\"description\":\"URL to access the distribution\",\"format\":\"uri\",\"type\":\"string\"},\"byteSize\":{\"description\":\"Size in bytes\",\"type\":\"integer\"},\"downloadURL\":{\"description\":\"Direct download URL\",\"format\":\"uri\",\"type\":\"string\"},\"format\":{\"description\":\"File format (CSV, JSON, XML, etc.)\",\"type\":\"string\"},\"id\":{\"description\":\"Distribution identifier\",\"type\":\"string\"},\"mediaType\":{\"description\":\"MIME type\",\"type\":\"string\"},\"title\":{\"description\":\"Distribution title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"id\":{\"description\":\"Dataset identifier\",\"type\":\"string\"},\"keyword\":{\"description\":\"Dataset keywords\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"modified\":{\"description\":\"Last modification date\",\"format\":\"date-time\",\"type\":\"string\"},\"publisher\":{\"properties\":{\"mbox\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"theme\":{\"description\":\"Dataset themes/categories\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"title\":{\"description\":\"Dataset title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"page\":{\"type\":\"integer\"},\"pageSize\":{\"type\":\"integer\"},\"totalResults\":{\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Dataset listing\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/catalog/dataset",
-                  "segments": [
-                    {
-                      "lit": "catalog"
-                    },
-                    {
-                      "lit": "dataset"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/catalog/dataset",
+                  "q": {
                     "exist": [
                       "keyword",
                       "page",
@@ -196,35 +265,49 @@
                       "theme"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "catalog"
+                    },
+                    {
+                      "lit": "dataset"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.result`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /catalog/dataset/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /catalog/dataset/{id}",
-                    "json": "{\"operationId\":\"getDataset\",\"parameters\":[{\"description\":\"The dataset identifier\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"description\":{\"description\":\"Dataset description\",\"type\":\"string\"},\"distribution\":{\"items\":{\"properties\":{\"accessURL\":{\"description\":\"URL to access the distribution\",\"format\":\"uri\",\"type\":\"string\"},\"byteSize\":{\"description\":\"Size in bytes\",\"type\":\"integer\"},\"downloadURL\":{\"description\":\"Direct download URL\",\"format\":\"uri\",\"type\":\"string\"},\"format\":{\"description\":\"File format (CSV, JSON, XML, etc.)\",\"type\":\"string\"},\"id\":{\"description\":\"Distribution identifier\",\"type\":\"string\"},\"mediaType\":{\"description\":\"MIME type\",\"type\":\"string\"},\"title\":{\"description\":\"Distribution title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"id\":{\"description\":\"Dataset identifier\",\"type\":\"string\"},\"keyword\":{\"description\":\"Dataset keywords\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"modified\":{\"description\":\"Last modification date\",\"format\":\"date-time\",\"type\":\"string\"},\"publisher\":{\"properties\":{\"mbox\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"theme\":{\"description\":\"Dataset themes/categories\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"title\":{\"description\":\"Dataset title\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Dataset details\"},\"404\":{\"description\":\"Dataset not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/catalog/dataset/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/catalog/dataset/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "catalog"
                     },
@@ -235,12 +318,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -257,32 +335,36 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "items",
-              "req": false,
-              "type": "`$ARRAY`"
+          "fields": {
+            "items": {
+              "a": true,
+              "h": "Items",
+              "n": "items",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "page",
-              "req": false,
-              "type": "`$INTEGER`"
+            "page": {
+              "a": true,
+              "h": "Page",
+              "n": "page",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "pageSize",
-              "req": false,
-              "type": "`$INTEGER`"
+            "pageSize": {
+              "a": true,
+              "h": "Page Size",
+              "n": "pageSize",
+              "r": false,
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "totalResults",
-              "req": false,
-              "type": "`$INTEGER`"
+            "totalResults": {
+              "a": true,
+              "h": "Total Results",
+              "n": "totalResults",
+              "r": false,
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "name": "distribution",
           "op": {
             "load": {
@@ -290,64 +372,55 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /catalog/distribution",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "format",
-                        "orig": "format",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "format",
+                        "or": "format",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "page_size",
-                        "orig": "page_size",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "page_size",
+                        "or": "page_size",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "title",
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "title",
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /catalog/distribution",
-                    "json": "{\"operationId\":\"listDistributions\",\"parameters\":[{\"description\":\"Sort field\",\"in\":\"query\",\"name\":\"_sort\",\"schema\":{\"default\":\"title\",\"type\":\"string\"}},{\"description\":\"Number of results per page\",\"in\":\"query\",\"name\":\"_pageSize\",\"schema\":{\"default\":10,\"type\":\"integer\"}},{\"description\":\"Page number (0-indexed)\",\"in\":\"query\",\"name\":\"_page\",\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Filter by distribution format (e.g., CSV, JSON, XML)\",\"in\":\"query\",\"name\":\"format\",\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"result\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"accessURL\":{\"description\":\"URL to access the distribution\",\"format\":\"uri\",\"type\":\"string\"},\"byteSize\":{\"description\":\"Size in bytes\",\"type\":\"integer\"},\"downloadURL\":{\"description\":\"Direct download URL\",\"format\":\"uri\",\"type\":\"string\"},\"format\":{\"description\":\"File format (CSV, JSON, XML, etc.)\",\"type\":\"string\"},\"id\":{\"description\":\"Distribution identifier\",\"type\":\"string\"},\"mediaType\":{\"description\":\"MIME type\",\"type\":\"string\"},\"title\":{\"description\":\"Distribution title\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"page\":{\"type\":\"integer\"},\"pageSize\":{\"type\":\"integer\"},\"totalResults\":{\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Distribution listing\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/catalog/distribution",
-                  "segments": [
-                    {
-                      "lit": "catalog"
-                    },
-                    {
-                      "lit": "distribution"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/catalog/distribution",
+                  "q": {
                     "exist": [
                       "format",
                       "page",
@@ -355,7 +428,16 @@
                       "sort"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "catalog"
+                    },
+                    {
+                      "lit": "distribution"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.result`"
                   }
@@ -784,19 +866,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "dataset_ref01",
                 "srcdatavar": "dataset_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "dataset01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -816,17 +898,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "distribution_ref01",
                 "srcdatavar": "distribution_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

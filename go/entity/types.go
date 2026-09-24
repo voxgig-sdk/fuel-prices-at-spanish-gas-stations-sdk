@@ -1,7 +1,7 @@
 // Typed models for the FuelPricesAtSpanishGasStations SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,18 +14,6 @@ import (
 
 // Dataset is the typed data model for the dataset entity.
 type Dataset struct {
-	Description *string `json:"description,omitempty"`
-	Distribution *[]any `json:"distribution,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Keyword *[]any `json:"keyword,omitempty"`
-	Modified *string `json:"modified,omitempty"`
-	Page *int `json:"page,omitempty"`
-	PageSize *int `json:"pageSize,omitempty"`
-	Publisher *map[string]any `json:"publisher,omitempty"`
-	Theme *[]any `json:"theme,omitempty"`
-	Title *string `json:"title,omitempty"`
-	TotalResults *int `json:"totalResults,omitempty"`
 }
 
 // DatasetLoadMatch is the typed request payload for Dataset.LoadTyped.
@@ -35,10 +23,6 @@ type DatasetLoadMatch struct {
 
 // Distribution is the typed data model for the distribution entity.
 type Distribution struct {
-	Items *[]any `json:"items,omitempty"`
-	Page *int `json:"page,omitempty"`
-	PageSize *int `json:"pageSize,omitempty"`
-	TotalResults *int `json:"totalResults,omitempty"`
 }
 
 // DistributionLoadMatch is the typed request payload for Distribution.LoadTyped.

@@ -100,57 +100,69 @@ module FuelPricesAtSpanishGasStationsConfig
           "fields" => [
             {
               "name" => "description",
-              "short" => "Dataset description",
+              "title" => "Description",
               "type" => "`$STRING`",
+              "short" => "Dataset description",
             },
             {
               "name" => "distribution",
+              "title" => "Distribution",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "id",
-              "short" => "Dataset identifier",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Dataset identifier",
             },
             {
               "name" => "items",
+              "title" => "Items",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "keyword",
-              "short" => "Dataset keywords",
+              "title" => "Keyword",
               "type" => "`$ARRAY`",
+              "short" => "Dataset keywords",
             },
             {
-              "format" => "date-time",
               "name" => "modified",
-              "short" => "Last modification date",
+              "title" => "Modified",
               "type" => "`$STRING`",
+              "short" => "Last modification date",
+              "format" => "date-time",
             },
             {
               "name" => "page",
+              "title" => "Page",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "pageSize",
+              "title" => "Page Size",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "publisher",
+              "title" => "Publisher",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "theme",
-              "short" => "Dataset themes/categories",
+              "title" => "Theme",
               "type" => "`$ARRAY`",
+              "short" => "Dataset themes/categories",
             },
             {
               "name" => "title",
-              "short" => "Dataset title",
+              "title" => "Title",
               "type" => "`$STRING`",
+              "short" => "Dataset title",
             },
             {
               "name" => "totalResults",
+              "title" => "Total Results",
               "type" => "`$INTEGER`",
             },
           ],
@@ -165,43 +177,6 @@ module FuelPricesAtSpanishGasStationsConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "keyword",
-                        "orig" => "keyword",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 0,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 10,
-                        "kind" => "query",
-                        "name" => "page_size",
-                        "orig" => "page_size",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => "title",
-                        "kind" => "query",
-                        "name" => "sort",
-                        "orig" => "sort",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "theme",
-                        "orig" => "theme",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalog/dataset",
@@ -213,6 +188,52 @@ module FuelPricesAtSpanishGasStationsConfig
                       "lit" => "dataset",
                     },
                   ],
+                  "parts" => [
+                    "catalog",
+                    "dataset",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.result`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "keyword",
+                        "orig" => "keyword",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 0,
+                      },
+                      {
+                        "name" => "page_size",
+                        "orig" => "page_size",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 10,
+                      },
+                      {
+                        "name" => "sort",
+                        "orig" => "sort",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "title",
+                      },
+                      {
+                        "name" => "theme",
+                        "orig" => "theme",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "keyword",
@@ -222,27 +243,8 @@ module FuelPricesAtSpanishGasStationsConfig
                       "theme",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.result`",
-                  },
-                  "parts" => [
-                    "catalog",
-                    "dataset",
-                  ],
                 },
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "kind" => "param",
-                        "name" => "id",
-                        "orig" => "id",
-                        "reqd" => true,
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalog/dataset/{id}",
@@ -257,20 +259,32 @@ module FuelPricesAtSpanishGasStationsConfig
                       "var" => "id",
                     },
                   ],
-                  "select" => {
-                    "exist" => [
-                      "id",
-                    ],
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                   "parts" => [
                     "catalog",
                     "dataset",
                     "{id}",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "id",
+                        "orig" => "id",
+                        "type" => "`$STRING`",
+                        "kind" => "param",
+                        "reqd" => true,
+                      },
+                    ],
+                  },
+                  "select" => {
+                    "exist" => [
+                      "id",
+                    ],
+                  },
                 },
               ],
             },
@@ -283,18 +297,22 @@ module FuelPricesAtSpanishGasStationsConfig
           "fields" => [
             {
               "name" => "items",
+              "title" => "Items",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "page",
+              "title" => "Page",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "pageSize",
+              "title" => "Page Size",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "totalResults",
+              "title" => "Total Results",
               "type" => "`$INTEGER`",
             },
           ],
@@ -305,37 +323,6 @@ module FuelPricesAtSpanishGasStationsConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "format",
-                        "orig" => "format",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 0,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 10,
-                        "kind" => "query",
-                        "name" => "page_size",
-                        "orig" => "page_size",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => "title",
-                        "kind" => "query",
-                        "name" => "sort",
-                        "orig" => "sort",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/catalog/distribution",
@@ -347,6 +334,46 @@ module FuelPricesAtSpanishGasStationsConfig
                       "lit" => "distribution",
                     },
                   ],
+                  "parts" => [
+                    "catalog",
+                    "distribution",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.result`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "format",
+                        "orig" => "format",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 0,
+                      },
+                      {
+                        "name" => "page_size",
+                        "orig" => "page_size",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 10,
+                      },
+                      {
+                        "name" => "sort",
+                        "orig" => "sort",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "title",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "format",
@@ -355,14 +382,6 @@ module FuelPricesAtSpanishGasStationsConfig
                       "sort",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.result`",
-                  },
-                  "parts" => [
-                    "catalog",
-                    "distribution",
-                  ],
                 },
               ],
             },

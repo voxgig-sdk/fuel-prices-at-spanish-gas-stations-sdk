@@ -1,0 +1,109 @@
+# Entity: distribution
+
+main: kit: entity: distribution: {
+
+  alias: field: {}
+
+  fields: {
+    items: {
+      h: "Items"
+      n: "items"
+      r: false
+      t: "`$ARRAY`"
+    }
+    page: {
+      h: "Page"
+      n: "page"
+      r: false
+      t: "`$INTEGER`"
+    }
+    pageSize: {
+      h: "Page Size"
+      n: "pageSize"
+      r: false
+      t: "`$INTEGER`"
+    }
+    totalResults: {
+      h: "Total Results"
+      n: "totalResults"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "distribution"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /catalog/distribution"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "title"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/catalog/distribution"
+          q: {
+            exist: [
+              "format"
+              "page"
+              "page_size"
+              "sort"
+            ]
+          }
+          s: [
+            {
+              lit: "catalog"
+            }
+            {
+              lit: "distribution"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

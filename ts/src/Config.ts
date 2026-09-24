@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,57 +135,69 @@ class Config {
       "fields": [
         {
           "name": "description",
-          "short": "Dataset description",
-          "type": "`$STRING`"
+          "title": "Description",
+          "type": "`$STRING`",
+          "short": "Dataset description"
         },
         {
           "name": "distribution",
+          "title": "Distribution",
           "type": "`$ARRAY`"
         },
         {
           "name": "id",
-          "short": "Dataset identifier",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Dataset identifier"
         },
         {
           "name": "items",
+          "title": "Items",
           "type": "`$ARRAY`"
         },
         {
           "name": "keyword",
-          "short": "Dataset keywords",
-          "type": "`$ARRAY`"
+          "title": "Keyword",
+          "type": "`$ARRAY`",
+          "short": "Dataset keywords"
         },
         {
-          "format": "date-time",
           "name": "modified",
+          "title": "Modified",
+          "type": "`$STRING`",
           "short": "Last modification date",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "page",
+          "title": "Page",
           "type": "`$INTEGER`"
         },
         {
           "name": "pageSize",
+          "title": "Page Size",
           "type": "`$INTEGER`"
         },
         {
           "name": "publisher",
+          "title": "Publisher",
           "type": "`$OBJECT`"
         },
         {
           "name": "theme",
-          "short": "Dataset themes/categories",
-          "type": "`$ARRAY`"
+          "title": "Theme",
+          "type": "`$ARRAY`",
+          "short": "Dataset themes/categories"
         },
         {
           "name": "title",
-          "short": "Dataset title",
-          "type": "`$STRING`"
+          "title": "Title",
+          "type": "`$STRING`",
+          "short": "Dataset title"
         },
         {
           "name": "totalResults",
+          "title": "Total Results",
           "type": "`$INTEGER`"
         }
       ],
@@ -207,43 +212,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "keyword",
-                    "orig": "keyword",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "page_size",
-                    "orig": "page_size",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "title",
-                    "kind": "query",
-                    "name": "sort",
-                    "orig": "sort",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "theme",
-                    "orig": "theme",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/catalog/dataset",
@@ -255,6 +223,52 @@ class Config {
                   "lit": "dataset"
                 }
               ],
+              "parts": [
+                "catalog",
+                "dataset"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.result`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "keyword",
+                    "orig": "keyword",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "page_size",
+                    "orig": "page_size",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "sort",
+                    "orig": "sort",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "title"
+                  },
+                  {
+                    "name": "theme",
+                    "orig": "theme",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "keyword",
@@ -263,28 +277,9 @@ class Config {
                   "sort",
                   "theme"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.result`"
-              },
-              "parts": [
-                "catalog",
-                "dataset"
-              ]
+              }
             },
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/catalog/dataset/{id}",
@@ -299,20 +294,32 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "catalog",
                 "dataset",
                 "{id}"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }
@@ -325,18 +332,22 @@ class Config {
       "fields": [
         {
           "name": "items",
+          "title": "Items",
           "type": "`$ARRAY`"
         },
         {
           "name": "page",
+          "title": "Page",
           "type": "`$INTEGER`"
         },
         {
           "name": "pageSize",
+          "title": "Page Size",
           "type": "`$INTEGER`"
         },
         {
           "name": "totalResults",
+          "title": "Total Results",
           "type": "`$INTEGER`"
         }
       ],
@@ -347,37 +358,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "page_size",
-                    "orig": "page_size",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "title",
-                    "kind": "query",
-                    "name": "sort",
-                    "orig": "sort",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/catalog/distribution",
@@ -389,6 +369,46 @@ class Config {
                   "lit": "distribution"
                 }
               ],
+              "parts": [
+                "catalog",
+                "distribution"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.result`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "page_size",
+                    "orig": "page_size",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "sort",
+                    "orig": "sort",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "title"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "format",
@@ -396,15 +416,7 @@ class Config {
                   "page_size",
                   "sort"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.result`"
-              },
-              "parts": [
-                "catalog",
-                "distribution"
-              ]
+              }
             }
           ]
         }
